@@ -1,0 +1,108 @@
+// lib/contentApi.js
+// Replace your existing contentApi.js with this file
+// Connects your Next.js frontend to the PHP backend
+
+const BASE_URL = (
+  process.env.NEXT_PUBLIC_PHP_API_BASE_URL ||
+  process.env.NEXT_PUBLIC_API_URL ||
+  'https://webstepdev.com/demo/webstepphp'
+).replace(/\/+$/, '');
+
+const CONTENT_ENDPOINTS = {
+  packages: '/api/packages.php',
+  portfolio: '/api/portfolio.php',
+  'case-studies': '/api/case-studies.php',
+};
+
+/**
+ * Fetch packages and tabs for the Packages component
+ * Drop-in replacement - returns { tabs, packages } in same shape
+ */
+export async function fetchContent(type, fallback) {
+  const endpoint = CONTENT_ENDPOINTS[type];
+  if (!endpoint) return fallback;
+
+  try {
+    const res = await fetch(`${BASE_URL}${endpoint}`, {
+      cache: 'no-store', // always fresh
+    });
+    if (!res.ok) throw new Error('API error');
+    const data = await res.json();
+    return { ...fallback, ...data };
+  } catch (err) {
+    console.warn('[contentApi] fetchContent failed, using fallback:', err.message);
+    return fallback;
+  }
+}
+
+/**
+ * Fetch custom builder options for CustomizePackage component
+ * Returns { websiteType, pages, design, features } arrays
+ */
+export async function fetchCustomOptions() {
+  try {
+    const res = await fetch(`${BASE_URL}/api/custom-options.php`, {
+      cache: 'no-store',
+    });
+    if (!res.ok) throw new Error('API error');
+    return res.json();
+  } catch (err) {
+    console.warn('[contentApi] fetchCustomOptions failed:', err.message);
+    return null; // caller should use FALLBACK
+  }
+}
+
+export async function fetchServicePage(slug, fallback) {
+  try {
+    const res = await fetch(`${BASE_URL}/api/service-page.php?slug=${encodeURIComponent(slug)}`, {
+      cache: 'no-store',
+    });
+    if (!res.ok) throw new Error('API error');
+    const data = await res.json();
+    if (!data.success) throw new Error(data.error || 'API error');
+    return { ...fallback, ...data.data };
+  } catch (err) {
+    console.warn('[contentApi] fetchServicePage failed, using fallback:', err.message);
+    return fallback;
+  }
+}
+
+/**
+ * Submit a website lead from contact, quote, experts, or custom package forms.
+ */
+export async function submitLead(payload) {
+  const res = await fetch(`${BASE_URL}/api/submit-custom.php`, {
+    method:  'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body:    JSON.stringify(payload),
+  });
+
+  const data = await res.json();
+  if (!data.success) throw new Error(data.error || 'Submission failed');
+  return data;
+}
+
+/**
+ * Submit a "Choose Plan" inquiry from the Packages page
+ */
+export async function submitPlanInquiry(payload) {
+  const res = await fetch(`${BASE_URL}/api/submit-inquiry.php`, {
+    method:  'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body:    JSON.stringify(payload),
+  });
+  const data = await res.json();
+  if (!data.success) throw new Error(data.error || 'Submission failed');
+  return data;
+}
+
+export async function submitNewsletter(payload) {
+  const res = await fetch(`${BASE_URL}/api/newsletter.php`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(payload),
+  });
+  const data = await res.json();
+  if (!data.success) throw new Error(data.error || 'Subscription failed');
+  return data;
+}

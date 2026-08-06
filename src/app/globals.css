@@ -1,0 +1,59 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    box-sizing: border-box;
+    font-family: var(--font-roboto), sans-serif;
+  }
+
+  *,
+  *:before,
+  *:after {
+    box-sizing: inherit;
+    background-repeat: no-repeat !important;
+  }
+
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: var(--font-roboto), sans-serif;
+    background-color: #030303;
+    color: #ffffff;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-weight: 800;
+    font-family: var(--font-roboto), sans-serif;
+  }
+}
+
+@layer utilities {
+
+  .font-roboto,
+  * {
+    font-family: var(--font-roboto), sans-serif;
+  }
+
+
+}
+/* FloatingWhatsApp input fix */
+.floating-whatsapp-input input,
+.floating-whatsapp input[type="text"],
+[class*="floating-whatsapp"] input {
+  pointer-events: all !important;
+  user-select: text !important;
+  -webkit-user-select: text !important;
+  position: relative !important;
+  z-index: 99999 !important;
+}
+
+[class*="floating-whatsapp"] {
+  z-index: 99999 !important;
+}
