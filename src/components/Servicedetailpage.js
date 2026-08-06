@@ -63,7 +63,7 @@ const ALL_SERVICES = {
     description: "We meticulously convert your Sketch designs into W3C-validated, fast-loading HTML. Every symbol, style, and component faithfully reproduced with cross-browser precision.",
     tags: ["Cross-browser", "Modern CSS", "Responsive"],
     icon: (<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2" /><polyline points="2 17 12 22 22 17" /><polyline points="2 12 12 17 22 12" /></svg>),
-    stats: [{ value: "150+", label: "Sketch Projects" }, { value: "99%", label: "W3C Valid" }, { value: "48hr", label: "Avg Turnaround" }, { value: "5★", label: "Rated" }],
+    stats: [{ value: "150+", label: "Sketch Projects" }, { value: "98%", label: "W3C Valid" }, { value: "48hr", label: "Avg Turnaround" }, { value: "5★", label: "Rated" }],
     features: [
       { title: "Symbol Fidelity", desc: "Sketch symbols and shared styles translated into reusable CSS components.", icon: "◈" },
       { title: "Auto Layout Support", desc: "Sketch auto-layout constraints perfectly mirrored in CSS flexbox & grid.", icon: "⬡" },
@@ -131,7 +131,7 @@ const ALL_SERVICES = {
     description: "We build native iOS & Android apps and cross-platform solutions using React Native and Flutter. From MVP to enterprise-grade — every app is engineered for performance, scalability, and a delightful UX.",
     tags: ["iOS & Android", "React Native", "Flutter"],
     icon: (<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2" /><line x1="12" y1="18" x2="12.01" y2="18" /></svg>),
-    stats: [{ value: "120+", label: "Apps Launched" }, { value: "4.8★", label: "Avg App Rating" }, { value: "2M+", label: "End Users" }, { value: "99%", label: "Client Retention" }],
+    stats: [{ value: "120+", label: "Apps Launched" }, { value: "4.8★", label: "Avg App Rating" }, { value: "2M+", label: "End Users" }, { value: "98%", label: "Client Retention" }],
     features: [
       { title: "Native Performance", desc: "Platform-specific code for iOS and Android that leverages every device capability.", icon: "◈" },
       { title: "React Native", desc: "Single codebase, two platforms — 90% code reuse with native-like performance.", icon: "⬡" },
@@ -369,7 +369,7 @@ const ALL_SERVICES = {
     description: "We build custom WordPress websites — not template sites. Custom themes from Figma designs, bespoke plugins, headless WordPress with Next.js, and full WooCommerce stores.",
     tags: ["Custom Themes", "WooCommerce", "Headless WP"],
     icon: (<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10" /><line x1="2" y1="12" x2="22" y2="12" /><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" /></svg>),
-    stats: [{ value: "400+", label: "WP Sites Built" }, { value: "100%", label: "Custom Coded" }, { value: "95+", label: "PageSpeed Score" }, { value: "5★", label: "Rated" }],
+    stats: [{ value: "400+", label: "WP Sites Built" }, { value: "100%", label: "Custom Coded" }, { value: "915+", label: "PageSpeed Score" }, { value: "5★", label: "Rated" }],
     features: [
       { title: "Custom Theme Development", desc: "Pixel-perfect themes from your Figma/PSD — no page builders, no bloat.", icon: "◈" },
       { title: "WooCommerce Stores", desc: "Full WooCommerce with custom product types, checkout flows, and payment gateways.", icon: "⬡" },
@@ -403,7 +403,7 @@ const ALL_SERVICES = {
     description: "We engineer custom websites and web applications that are fast, accessible, and built for growth. From marketing sites to complex SaaS platforms — every project crafted with precision and purpose.",
     tags: ["Next.js", "React", "Performance"],
     icon: (<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><polyline points="16 18 22 12 16 6" /><polyline points="8 6 2 12 8 18" /></svg>),
-    stats: [{ value: "500+", label: "Sites Launched" }, { value: "95+", label: "PageSpeed Avg" }, { value: "3x", label: "Avg Traffic Growth" }, { value: "5★", label: "Rated" }],
+    stats: [{ value: "500+", label: "Sites Launched" }, { value: "915+", label: "PageSpeed Avg" }, { value: "3x", label: "Avg Traffic Growth" }, { value: "5★", label: "Rated" }],
     features: [
       { title: "Next.js & React Applications", desc: "SSR, SSG, and ISR for maximum performance and SEO-optimised UIs.", icon: "◈" },
       { title: "CMS Integration", desc: "Headless CMS with Sanity, Contentful, or Strapi for flexible content management.", icon: "⬡" },
@@ -713,7 +713,7 @@ const SLUG_ALIASES = {
 
 // ─── FAQ ITEM ─────────────────────────────────────────────────────────────────
 function FaqItem({ faq, index }) {
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(index === 0);
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -749,6 +749,7 @@ function FaqItem({ faq, index }) {
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+            className="overflow-hidden"
           >
             <p className="px-4 sm:px-6 pb-4 sm:pb-5 text-slate-600 text-[13px] sm:text-sm leading-relaxed">{faq.a}</p>
           </motion.div>

@@ -8,8 +8,9 @@ import { useRouter, useSearchParams } from 'next/navigation';
 import {
   FaLaptopCode, FaShoppingCart, FaBriefcase, FaPaintBrush,
   FaSearch, FaPenNib, FaCreditCard, FaShareAlt,
-  FaCheckCircle, FaTrash, FaGripVertical, FaPlus, FaMinus
+  FaCheckCircle, FaTrash, FaGripVertical, FaPlus, FaMinus, FaUser, FaPhoneAlt, FaPaperPlane
 } from 'react-icons/fa';
+import { LuClock } from 'react-icons/lu';
 import { motion, AnimatePresence } from "framer-motion";
 import { fetchCustomOptions, submitLead, submitPlanInquiry } from '@/lib/contentApi';
 import { THANK_YOU_ROUTE } from '@/lib/routes';
@@ -156,7 +157,8 @@ export default function CustomizePackage() {
 
     try {
       await submitPlanInquiry({
-        package_id: selectedPlan.id || 0,
+        package_id: selectedPlan.id || selectedPlan.package_id || 0,
+        package_title: selectedPlan.title || '',
         name: planContactInfo.name,
         email: planContactInfo.email,
         phone: planContactInfo.phone,
@@ -323,28 +325,136 @@ export default function CustomizePackage() {
             </div>
 
             <div className="grid grid-cols-1 lg:grid-cols-[0.9fr_1.1fr] gap-6 sm:gap-8">
-              <motion.div variants={fadeIn} initial="initial" animate="animate" className="bg-white/80 backdrop-blur-xl rounded-3xl p-5 sm:p-8 shadow-xl border border-white/50">
-                <div className="mb-5">
-                  <p className="text-xs font-bold uppercase tracking-widest text-pink-600">{selectedPlan.category || 'Selected Package'}</p>
-                  <h3 className="text-xl sm:text-3xl font-bold text-slate-900 mt-2">{selectedPlan.title}</h3>
-                  {selectedPlan.description && <p className="text-slate-500 text-xs sm:text-sm mt-3">{selectedPlan.description}</p>}
-                </div>
-                {planPrice && (
-                  <div className="border-y border-slate-100 py-4 sm:py-5 mb-5">
-                    <span className="text-xs sm:text-sm uppercase tracking-wider text-slate-500">Plan Price</span>
-                    <p className="text-2xl sm:text-4xl font-extrabold text-slate-900 mt-1">{planPrice}</p>
+              <motion.div
+                variants={fadeIn}
+                initial="initial"
+                animate="animate"
+                className={`relative rounded-3xl p-6 sm:p-8 flex flex-col justify-between bg-white backdrop-blur-xl transition-all duration-300 ${
+                  selectedPlan.isPopular
+                    ? "border-2 border-[#ff0066] shadow-[0_12px_35px_rgba(255,0,102,0.18)]"
+                    : "border border-slate-200/90 shadow-xl"
+                }`}
+              >
+                {/* Most Popular Badge */}
+                {selectedPlan.isPopular && (
+                  <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-[#ff0066] text-white text-[10px] sm:text-[11px] font-extrabold tracking-wider uppercase px-4 py-1 rounded-full shadow-md whitespace-nowrap">
+                    {selectedPlan.popularBadge || "MOST POPULAR"}
                   </div>
                 )}
-                {Array.isArray(selectedPlan.features) && selectedPlan.features.length > 0 && (
-                  <ul className="space-y-2.5 sm:space-y-3">
-                    {selectedPlan.features.map((feature) => (
-                      <li key={feature} className="flex items-start gap-2.5 sm:gap-3 text-xs sm:text-sm text-slate-600">
-                        <FaCheckCircle className="text-pink-600 mt-0.5 shrink-0" />
-                        <span>{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
-                )}
+
+                <div>
+                  {/* Top Icon Circle */}
+                  <div className="w-12 h-12 rounded-full bg-pink-50 text-pink-500 flex items-center justify-center mx-auto mb-4 shadow-sm">
+                    <FaUser className="text-xl text-pink-500" />
+                  </div>
+
+                  {/* Title & Tagline/Category */}
+                  <div className="text-center mb-5">
+                    <span className="text-[10px] sm:text-[11px] font-extrabold uppercase tracking-widest text-pink-600 bg-pink-50 px-3 py-1 rounded-full inline-block mb-2">
+                      {selectedPlan.category || 'SELECTED PACKAGE'}
+                    </span>
+                    <h3 className="text-xl sm:text-2xl font-black text-slate-900 tracking-wide uppercase mt-1">
+                      {selectedPlan.title}
+                    </h3>
+                    {(selectedPlan.des || selectedPlan.tagline || selectedPlan.description) && (
+                      <p className="text-pink-600 text-xs sm:text-sm font-semibold mt-1.5 max-w-xs mx-auto leading-snug">
+                        {selectedPlan.des || selectedPlan.tagline || selectedPlan.description}
+                      </p>
+                    )}
+                  </div>
+
+                  {/* Price Section */}
+                  <div className="text-center border-y border-slate-100 py-4 mb-5 bg-slate-50/60 rounded-2xl">
+                    <span className="text-[10px] sm:text-[11px] font-extrabold uppercase tracking-widest text-slate-400 block mb-1">
+                      Plan Price
+                    </span>
+                    {selectedPlan.pricedes ? (
+                      <div className="flex items-baseline justify-center gap-1">
+                        <span className="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight">
+                          {selectedPlan.symbol ? `${selectedPlan.symbol}${selectedPlan.price}` : (planPrice || selectedPlan.price)}
+                        </span>
+                        <span className="text-slate-400 font-medium text-xs sm:text-sm">
+                          {selectedPlan.pricedes}
+                        </span>
+                      </div>
+                    ) : (
+                      <span className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight block">
+                        {planPrice || selectedPlan.price || '$0'}
+                      </span>
+                    )}
+                  </div>
+
+                  {/* Hours / Plan pill box */}
+                  <div
+                    className={`rounded-2xl p-3 text-center mb-6 border ${
+                      selectedPlan.hoursType === "pink"
+                        ? "bg-[#fff0f5] border-pink-100 text-pink-950"
+                        : selectedPlan.hoursType === "green"
+                        ? "bg-[#ecfdf5] border-emerald-100 text-emerald-950"
+                        : "bg-[#edf2fe] border-blue-100 text-blue-950"
+                    }`}
+                  >
+                    <div
+                      className={`flex items-center justify-center gap-1.5 font-bold text-xs sm:text-sm ${
+                        selectedPlan.hoursType === "pink"
+                          ? "text-pink-900"
+                          : selectedPlan.hoursType === "green"
+                          ? "text-emerald-900"
+                          : "text-blue-900"
+                      }`}
+                    >
+                      <LuClock
+                        className={
+                          selectedPlan.hoursType === "pink"
+                            ? "text-pink-500"
+                            : selectedPlan.hoursType === "green"
+                            ? "text-emerald-600"
+                            : "text-blue-600"
+                        }
+                      />
+                      <span>{selectedPlan.hoursText || `${selectedPlan.title || 'Selected'} Plan`}</span>
+                    </div>
+                    {selectedPlan.hoursSubtext && (
+                      <div
+                        className={`text-[10px] sm:text-[11px] font-medium mt-0.5 ${
+                          selectedPlan.hoursType === "pink"
+                            ? "text-pink-600/80"
+                            : selectedPlan.hoursType === "green"
+                            ? "text-emerald-600/80"
+                            : "text-slate-500"
+                        }`}
+                      >
+                        {selectedPlan.hoursSubtext}
+                      </div>
+                    )}
+                  </div>
+
+                  {/* Features list */}
+                  {(() => {
+                    const featuresList = Array.isArray(selectedPlan.events) && selectedPlan.events.length > 0
+                      ? selectedPlan.events
+                      : (Array.isArray(selectedPlan.features) ? selectedPlan.features : []);
+
+                    if (featuresList.length === 0) return null;
+
+                    return (
+                      <div className="space-y-3">
+                        <ul className="space-y-2.5">
+                          {featuresList.map((feature, idx) => {
+                            const rawText = typeof feature === 'object' && feature !== null ? (feature.title || feature.name || JSON.stringify(feature)) : String(feature);
+                            const featText = rawText.replace(/^OK\s*[:-]?\s*/i, '');
+                            return (
+                              <li key={`plan-feat-${idx}`} className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-700 font-medium">
+                                <FaCheckCircle className="text-pink-500 mt-0.5 shrink-0 text-sm" />
+                                <span>{featText}</span>
+                              </li>
+                            );
+                          })}
+                        </ul>
+                      </div>
+                    );
+                  })()}
+                </div>
               </motion.div>
 
               <motion.div variants={fadeIn} initial="initial" animate="animate" className="relative p-[1px] rounded-3xl bg-gradient-to-br from-[#E879F9] to-[#38BDF8]">

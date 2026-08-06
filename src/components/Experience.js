@@ -16,14 +16,39 @@ const stats = [
 
 const reviews = [
   {
-    name: 'Arjun R.', role: 'Founder, TechVenture',
-    text: 'Webstep delivered our Next.js platform flawlessly. Clean code, great communication.',
+    name: 'Bradley Braun', role: 'Verified Client',
+    text: 'I enjoy working with Karan from Webstep Solutions, he is fluent in English and has excellent developmental skills.',
     avatarBg: 'rgba(124,58,237,0.1)', avatarColor: '#7C3AED',
   },
   {
-    name: 'Laura M.', role: 'CEO, ShopEase UK',
-    text: 'Our Shopify store conversions jumped 35% after Webstep rebuilt our theme. Exceptional work.',
+    name: 'Bradley Braun', role: 'Verified Client',
+    text: 'Webstep Solutions provided the deliverables in a timely and professional manner. They knows WordPress (as qwell as other platforms) and exceeded expectations.',
+    avatarBg: 'rgba(99,102,241,0.1)', avatarColor: '#6366F1',
+  },
+  {
+    name: 'Magnus Stihl', role: 'Business Owner',
+    text: "Karan from Webstep Solutions saved the day for us! What began as some final finishes before launching to include membership account registration pages set up, adding icons and linking our social media accounts with the site, and some testing developed into a significant list of issues that Karan was able to discover and provide a various array of fixes including writing additional code, installing the appropriate plugins and a vast amount of troubleshooting and testing. Karan possesses an immense level of skills, when he says he will work, he does. When he says he will be finished, he meets the deadline. When he knows issues are critical, he stays the course until the issues are resolved. Like other business owners, we obviously have high expectations when hiring staff and engaging contractors. Karan exceeded our expectations. 10 stars!",
     avatarBg: 'rgba(8,145,178,0.1)', avatarColor: '#0891B2',
+  },
+  {
+    name: 'Syga Thomas', role: 'Verified Client',
+    text: 'Karan was excellent. He went above and beyond and can perform any task when it comes to website design.',
+    avatarBg: 'rgba(5,150,105,0.1)', avatarColor: '#059669',
+  },
+  {
+    name: 'Nathanael Murphy', role: 'Frontend Client',
+    text: 'Karan did an excellent job in a timely manner. He added his own design concepts without being asked, which helped make the project even better. I highly recommend Karan and am already hiring him for a second frontend project.',
+    avatarBg: 'rgba(219,39,119,0.1)', avatarColor: '#DB2777',
+  },
+  {
+    name: 'Ben Tee', role: 'Verified Client',
+    text: 'Wonderful work done!',
+    avatarBg: 'rgba(124,58,237,0.1)', avatarColor: '#7C3AED',
+  },
+  {
+    name: 'Amir Dagan', role: 'Verified Client',
+    text: 'The freelancer was very professional, well prepared and had a lot of patience with us',
+    avatarBg: 'rgba(234,88,12,0.1)', avatarColor: '#EA580C',
   },
 ];
 
@@ -124,16 +149,16 @@ const Experience = () => {
               <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 14 }}>
                 <div>
                   <div style={{ display: 'flex', gap: 3, marginBottom: 3 }}>
-                    {[1,2,3,4,5].map(s => <FaStar key={s} style={{ color: '#F59E0B', fontSize: 14 }} />)}
+                    {[1, 2, 3, 4, 5].map(s => <FaStar key={s} style={{ color: '#F59E0B', fontSize: 14 }} />)}
                   </div>
-                  <div style={{ fontSize: 11, fontWeight: 700, color: '#0a0a0a' }}>5.0 · 100+ reviews</div>
+                  <div style={{ fontSize: 11, fontWeight: 700, color: '#0a0a0a' }}>5.0 · 120+ reviews</div>
                 </div>
                 <div style={{ textAlign: 'right' }}>
                   <div style={{ fontSize: 9, fontWeight: 700, letterSpacing: '0.15em', textTransform: 'uppercase', color: '#cbd5e1' }}>Verified</div>
                   <div style={{ fontSize: 9.5, fontWeight: 700, color: '#10B981', marginTop: 1 }}>Google Reviews</div>
                 </div>
               </div>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: 8, maxHeight: '360px', overflowY: 'auto', paddingRight: '4px' }}>
                 {reviews.map((r, i) => (
                   <div key={i} className="ex-review-row">
                     <div style={{ width: 32, height: 32, borderRadius: '50%', background: r.avatarBg, flexShrink: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 12, fontWeight: 900, color: r.avatarColor }}>

@@ -299,7 +299,7 @@ const OurExpertize = () => {
               We design and deliver custom software frameworks configured specifically to grow your audience and protect core operations.
             </p>
             <div className="flex gap-4 sm:gap-8">
-              {[["250+", "Solutions"], ["12Y+", "Combined"], ["99%", "Uptime"]].map(
+              {[["120+", "Solutions"], ["12Y+", "Combined"], ["98%", "Uptime"]].map(
                 ([val, label]) => (
                   <div key={label}>
                     <div

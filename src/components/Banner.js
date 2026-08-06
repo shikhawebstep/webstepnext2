@@ -10,7 +10,7 @@ const herobanner = assetImage("banner.png");
 const SERVICES = [
   {
     id: "01",
-    num: 400,
+    num: 120,
     suffix: '+',
     label: 'Projects Delivered',
     accent: "#E879F9",
@@ -30,7 +30,7 @@ const SERVICES = [
   },
   {
     id: "03",
-    num: 5,
+    num: 12,
     suffix: '+',
     label: 'Years Experience',
     accent: "#34D399",
@@ -50,25 +50,27 @@ const SERVICES = [
   }
 ];
 
+function useCounter(end, duration = 2000) {
+  const [count, setCount] = useState(end);
+  useEffect(() => {
+    let start = 0;
+    const steps = duration / 16;
+    const increment = end / steps;
+    const timer = setInterval(() => {
+      start += increment;
+      if (start >= end) {
+        setCount(end);
+        clearInterval(timer);
+      } else {
+        setCount(Math.floor(start));
+      }
+    }, 16);
+    return () => clearInterval(timer);
+  }, [end, duration]);
+  return count;
+}
+
 function TiltCard({ service, index }) {
-  const useCounter = (end, duration = 2000) => {
-    const [count, setCount] = useState(0);
-    useEffect(() => {
-      let start = 0;
-      const increment = end / (duration / 16);
-      const timer = setInterval(() => {
-        start += increment;
-        if (start >= end) {
-          setCount(end);
-          clearInterval(timer);
-        } else {
-          setCount(Math.floor(start));
-        }
-      }, 16);
-      return () => clearInterval(timer);
-    }, [end, duration]);
-    return count;
-  };
 
   const ref = useRef(null);
   const [hovered, setHovered] = useState(false);

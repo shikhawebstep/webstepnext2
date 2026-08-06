@@ -1,5 +1,6 @@
 "use client";
 import React, { useState } from "react";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { FaLock, FaPaperPlane } from "react-icons/fa";
 import { submitLead } from "@/lib/contentApi";
@@ -115,7 +116,7 @@ const ContactForm = ({ light = false }) => {
                             </svg>
                         </div>
                         <span className={`text-xs sm:text-sm ${labelClasses} text-slate-700 group-hover:opacity-100 transition-opacity`}>
-                            I agree to the <a href="#" className="text-[#FF1F8E] hover:underline font-bold">Privacy Policy</a>
+                            I agree to the <Link href="/privacy" className="text-[#FF1F8E] hover:underline font-bold">Privacy Policy</Link>
                         </span>
                     </label>
 

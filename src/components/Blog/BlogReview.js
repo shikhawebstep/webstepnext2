@@ -13,10 +13,10 @@ const review3 = assetImage("review-icon4.png");
 
 const BlogReview = () => {
     const reviews = [
-        { src: review, alt: "Review 1", label: "Clutch" },
-        { src: review1, alt: "Review 2", label: "Google" },
-        { src: review2, alt: "Review 3", label: "UpCity" },
-        { src: review3, alt: "Review 4", label: "DesignRush" },
+        { src: review, alt: "Google", label: "Google" },
+        { src: review1, alt: "UpCity", label: "UpCity" },
+        { src: review2, alt: "Clutch", label: "Clutch" },
+        { src: review3, alt: "DesignRush", label: "DesignRush" },
     ];
 
     return (
@@ -103,7 +103,7 @@ const BlogReview = () => {
 
                         {/* SUBTEXT */}
                         <p className="mt-3 sm:mt-6 text-slate-500 text-xs sm:text-lg">
-                            4.9 average rating from 200+ verified client reviews
+                            4.9 average rating from 50+ verified client reviews
                         </p>
 
                     </AnimatedSection>
@@ -152,12 +152,12 @@ const BlogReview = () => {
                         <div className="absolute inset-0 bg-gradient-to-r from-pink-500/20 to-violet-500/20 blur-xl opacity-40"></div>
 
                         <div className="relative text-center">
-                            <p className="text-lg sm:text-2xl font-black">99%</p>
+                            <p className="text-lg sm:text-2xl font-black">98%</p>
                             <p className="text-[9px] sm:text-xs text-slate-400 tracking-wider sm:tracking-widest">Satisfaction</p>
                         </div>
 
                         <div className="relative text-center">
-                            <p className="text-lg sm:text-2xl font-black text-pink-400">10+</p>
+                            <p className="text-lg sm:text-2xl font-black text-pink-400">12+</p>
                             <p className="text-[9px] sm:text-xs text-slate-400 tracking-wider sm:tracking-widest">Years</p>
                         </div>
 

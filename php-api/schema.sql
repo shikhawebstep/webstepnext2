@@ -42,3 +42,31 @@ INSERT INTO dynamic_content (type, data, is_active) VALUES
   'categories', JSON_ARRAY('All','Healthcare','E-Commerce','SaaS','Education','Fintech','Non-Profit','Enterprise'),
   'caseStudies', JSON_ARRAY()
 ), 1);
+
+CREATE TABLE IF NOT EXISTS blogs (
+  id INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  title VARCHAR(255) NOT NULL,
+  slug VARCHAR(190) NOT NULL,
+  category VARCHAR(100) NOT NULL,
+  author VARCHAR(100) NOT NULL DEFAULT 'Webstep Team',
+  author_bio TEXT NULL,
+  author_avatar VARCHAR(255) NULL,
+  image VARCHAR(255) NULL,
+  excerpt TEXT NULL,
+  content LONGTEXT NOT NULL,
+  tags JSON NULL,
+  published_date VARCHAR(50) NULL,
+  read_time VARCHAR(50) NULL,
+  views INT UNSIGNED NOT NULL DEFAULT 0,
+  likes INT UNSIGNED NOT NULL DEFAULT 0,
+  featured TINYINT(1) NOT NULL DEFAULT 0,
+  seo_title VARCHAR(255) NULL,
+  seo_description TEXT NULL,
+  is_active TINYINT(1) NOT NULL DEFAULT 1,
+  created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (id),
+  UNIQUE KEY idx_blogs_slug (slug),
+  KEY idx_blogs_category (category),
+  KEY idx_blogs_active (is_active)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;

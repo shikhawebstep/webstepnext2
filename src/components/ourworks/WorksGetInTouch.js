@@ -17,7 +17,7 @@ const contactItems = [
     icon: <FaEnvelope />,
     title: "Contact Us",
     detail: "info@webstepsolutions.com",
-    subDetail: "+91 97818 90033",
+    subDetail: "+91 79739-38927",
     accent: "bg-[#FF8E5E]/10 text-[#FF8E5E]",
     border: "group-hover:border-[#FF8E5E]/30",
   },
@@ -32,9 +32,9 @@ const contactItems = [
 ];
 
 const socials = [
-  { icon: <FaLinkedinIn />, href: "#", label: "LinkedIn" },
-  { icon: <FaInstagram />, href: "#", label: "Instagram" },
-  { icon: <FaTwitter />, href: "#", label: "Twitter" },
+  { icon: <FaLinkedinIn />, href: "https://linkedin.com", label: "LinkedIn" },
+  { icon: <FaInstagram />, href: "https://instagram.com", label: "Instagram" },
+  { icon: <FaTwitter />, href: "https://twitter.com", label: "Twitter" },
 ];
 
 const FormSection = () => {
@@ -177,9 +177,9 @@ const FormSection = () => {
                 </p>
                 <div className="flex gap-3 sm:gap-6 mb-6 sm:mb-7">
                   {[
-                    { num: "500+", label: "Businesses" },
-                    { num: "40+", label: "Countries" },
-                    { num: "99.9%", label: "Uptime" },
+                    { num: "120+", label: "Businesses" },
+                    { num: "15+", label: "Countries" },
+                    { num: "98%", label: "Uptime" },
                   ].map((stat, i) => (
                     <div key={stat.label} className="flex gap-3 sm:gap-6">
                       <div>

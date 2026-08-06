@@ -1,55 +1,31 @@
 "use client";
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import AnimatedSection from '../AnimatedSection';
 import { FaCalendarAlt, FaUser, FaEye, FaArrowRight } from 'react-icons/fa';
 import { useRouter } from 'next/navigation';
-import { assetImage } from "@/lib/assets";
+import { fetchBlogs } from '@/lib/contentApi';
+import { assetImage, resolveBlogImage } from "@/lib/assets";
 const blog1 = assetImage("blog1.png");
 const blog2 = assetImage("blog2.png");
 const blog3 = assetImage("blog3.png");
 
 const BlogPosts = () => {
   const router = useRouter();
+  const [blogPostsData, setBlogPostsData] = useState([]);
+  const [loading, setLoading] = useState(true);
 
-  const blogPostsData = [
-    {
-      id: 1,
-      title: "React vs Next.js in 2025 — Which Should You Build With?",
-      slug: "react-vs-nextjs-2025",
-      imageSrc: blog1,
-      category: "Web Development",
-      description:
-        "Both React and Next.js are powerful — but choosing the wrong one can cost you time and money. We break down when to use each, based on 15+ years of real project experience.",
-      author: "Webstep Team",
-      date: "Mar 15, 2025",
-      views: 128,
-    },
-    {
-      id: 2,
-      title: "Shopify vs Custom Laravel Store — What's Right for Your Business?",
-      slug: "shopify-vs-laravel-ecommerce",
-      imageSrc: blog2,
-      category: "E-Commerce",
-      description:
-        "Shopify is fast to launch, but Laravel gives you full control. We've built both — here's an honest comparison to help you pick the right platform for your store.",
-      author: "Webstep Team",
-      date: "Apr 02, 2025",
-      views: 94,
-    },
-    {
-      id: 3,
-      title: "How AI Chatbots Are Transforming Customer Support in 2025",
-      slug: "ai-chatbots-customer-support-2025",
-      imageSrc: blog3,
-      category: "AI Integration",
-      description:
-        "From 24/7 instant replies to intelligent lead qualification — AI chatbots are no longer a luxury. Here's how Webstep integrates AI into real business workflows.",
-      author: "Webstep Team",
-      date: "May 10, 2025",
-      views: 76,
-    },
-  ];
+  useEffect(() => {
+    fetchBlogs({ categories: [], blogs: [] })
+      .then((data) => {
+        if (data.blogs) {
+          setBlogPostsData(data.blogs);
+        }
+      })
+      .finally(() => {
+        setLoading(false);
+      });
+  }, []);
 
   return (
     <section id="postblogs" className="py-12 sm:py-24 relative z-10 px-4 sm:px-6 font-roboto overflow-hidden" style={{
@@ -102,9 +78,10 @@ const BlogPosts = () => {
                 {/* Image */}
                 <div className="relative h-48 sm:h-64 overflow-hidden">
                   <Image
-                    src={post.imageSrc}
+                    src={resolveBlogImage(post.image || post.imageSrc)}
                     alt={post.title}
                     fill
+                    unoptimized={true}
                     className="object-cover group-hover:scale-110 transition-transform duration-700"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-90" />
@@ -122,11 +99,11 @@ const BlogPosts = () => {
                   <div className="flex items-center gap-4 sm:gap-6 mb-3 sm:mb-5 text-[11px] sm:text-xs font-semibold text-slate-400 tracking-wide">
                     <div className="flex items-center gap-1.5 sm:gap-2">
                       <FaCalendarAlt className="text-pink-500 text-xs sm:text-sm" />
-                      <span>{post.date}</span>
+                      <span>{post.published_date || post.date}</span>
                     </div>
                     <div className="flex items-center gap-1.5 sm:gap-2">
                       <FaEye className="text-orange-500 text-xs sm:text-sm" />
-                      <span>{post.views} Views</span>
+                      <span>{post.views || 0} Views</span>
                     </div>
                   </div>
 
@@ -137,7 +114,7 @@ const BlogPosts = () => {
 
                   {/* Description */}
                   <p className="text-slate-600 text-xs sm:text-base leading-relaxed mb-6 sm:mb-8 flex-grow line-clamp-3">
-                    {post.description}
+                    {post.excerpt || post.description}
                   </p>
 
                   {/* Footer */}

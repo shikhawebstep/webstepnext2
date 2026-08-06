@@ -16,7 +16,7 @@ const infoItems = [
     icon: <FaEnvelope />,
     title: "Contact Us",
     detail: "info@webstepsolutions.com",
-    subDetail: "+91 97818 90033",
+    subDetail: "+91 79739-38927",
     accent: "cyan",
   },
   {
@@ -32,19 +32,19 @@ const socials = [
   {
     icon: <FaLinkedinIn />,
     label: "LinkedIn",
-    href: "#",
+    href: "https://linkedin.com",
     hoverColor: "#0077b5",
   },
   {
     icon: <FaInstagram />,
     label: "Instagram",
-    href: "#",
+    href: "https://instagram.com",
     hoverColor: "#e1306c",
   },
   {
     icon: <FaTwitter />,
     label: "Twitter",
-    href: "#",
+    href: "https://twitter.com",
     hoverColor: "#1da1f2",
   },
 ];

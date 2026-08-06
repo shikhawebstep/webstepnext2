@@ -21,9 +21,9 @@ const clutch = assetImage("clutch.png");
 
 const trustStats = [
   { icon: Users, num: "12+", label: "Years of Experience" },
-  { icon: Briefcase, num: "100+", label: "Successful Projects" },
-  { icon: Globe2, num: "5+", label: "Countries Served" },
-  { icon: ShieldCheck, num: "100%", label: "Client Satisfaction" },
+  { icon: Briefcase, num: "120+", label: "Successful Projects" },
+  { icon: Globe2, num: "15+", label: "Countries Served" },
+  { icon: ShieldCheck, num: "98%", label: "Client Satisfaction" },
   { icon: Headphones, num: "24/7", label: "Support & Communication" },
 ];
 
@@ -288,7 +288,7 @@ export default function TrustReviewsPage() {
                 </div>
                 <div className="space-y-0.5 text-[11px] sm:text-xs font-medium text-slate-500 mb-2">
                   <p>22,000+ Hours Worked</p>
-                  <p>130+ Projects Completed</p>
+                  <p>120+ Projects Completed</p>
                 </div>
 
                 <div className="text-xs sm:text-sm font-extrabold text-blue-600 mb-2">
@@ -296,9 +296,10 @@ export default function TrustReviewsPage() {
                 </div>
               </div>
 
-              {/* Profile Link */}
               <a
-                href="#"
+                href="https://www.upwork.com/agencies/webstep/"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-1 text-xs md:text-sm font-bold text-[#FF1F8E] hover:underline transition-colors pt-2 border-t border-pink-100/60 w-full"
               >
                 <span>View Our Upwork Profile</span>
@@ -352,7 +353,7 @@ export default function TrustReviewsPage() {
             </p>
             <p>
               Click on any platform to{" "}
-              <a href="#" className="font-bold text-[#FF1F8E] hover:underline">
+              <a href="https://www.upwork.com/agencies/webstep/" target="_blank" rel="noopener noreferrer" className="font-bold text-[#FF1F8E] hover:underline">
                 view our profile
               </a>{" "}
               and client feedback.

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Webstep Solutions — Company Profile (Upwork Edition)</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap');
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Inter', sans-serif; color: #0f172a; background: #ffffff; padding: 40px; max-width: 900px; mx-auto: auto; margin: auto; }
+    .header { text-align: center; border-bottom: 2px solid #f1f5f9; padding-bottom: 30px; margin-bottom: 30px; }
+    .badge { display: inline-block; background: #fff0f5; color: #ff0066; font-size: 12px; font-weight: 700; letter-spacing: 1.5px; padding: 6px 16px; border-radius: 20px; text-transform: uppercase; margin-bottom: 12px; border: 1px solid #ffe4e6; }
+    h1 { font-size: 32px; font-weight: 900; color: #0f172a; margin-bottom: 8px; }
+    .subtitle { font-size: 16px; color: #64748b; font-weight: 500; }
+    .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin: 30px 0; text-align: center; }
+    .stat-card { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 16px; padding: 20px; }
+    .stat-num { font-size: 28px; font-weight: 900; color: #ff0066; }
+    .stat-label { font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: #64748b; margin-top: 4px; font-weight: 700; }
+    .section-title { font-size: 20px; font-weight: 800; color: #0f172a; margin: 30px 0 16px 0; padding-bottom: 8px; border-bottom: 2px solid #ff0066; display: inline-block; }
+    .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-bottom: 24px; }
+    .card { background: #ffffff; border: 1px solid #e2e8f0; border-radius: 16px; padding: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+    .card-title { font-size: 16px; font-weight: 800; color: #0f172a; margin-bottom: 8px; }
+    .card-desc { font-size: 13px; color: #475569; line-height: 1.6; }
+    ul { list-style: none; padding: 0; margin-top: 10px; }
+    li { font-size: 13px; color: #334155; padding: 4px 0; display: flex; items-center: center; }
+    li::before { content: "✓"; color: #ff0066; font-weight: bold; margin-right: 8px; }
+    .upwork-notice { background: #ecfdf5; border: 1px solid #a7f3d0; color: #065f46; padding: 16px 20px; border-radius: 16px; font-size: 13px; font-weight: 600; text-align: center; margin-top: 40px; }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <div class="badge">Top Rated Plus Agency</div>
+    <h1>Webstep Solutions</h1>
+    <div class="subtitle">Full-Service Web, Mobile & AI Product Engineering</div>
+  </div>
+
+  <div class="stats-grid">
+    <div class="stat-card">
+      <div class="stat-num">12+</div>
+      <div class="stat-label">Years Experience</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">120+</div>
+      <div class="stat-label">Projects Delivered</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">98%</div>
+      <div class="stat-label">Client Satisfaction</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">150+</div>
+      <div class="stat-label">Team Experts</div>
+    </div>
+  </div>
+
+  <div class="section-title">Core Capabilities</div>
+  <div class="grid">
+    <div class="card">
+      <div class="card-title">Frontend Engineering</div>
+      <div class="card-desc">React.js, Next.js (App Router), Vue.js, Tailwind CSS, TypeScript. Lightning-fast SSR & SPA architectures.</div>
+      <ul>
+        <li>Pixel-perfect UI/UX implementation</li>
+        <li>Sub-second page load optimization</li>
+        <li>Component library design & design systems</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title">Backend & API Systems</div>
+      <div class="card-desc">Node.js, Express, PHP (Laravel), Python, REST & GraphQL APIs, MySQL, PostgreSQL, MongoDB.</div>
+      <ul>
+        <li>Scalable microservices architecture</li>
+        <li>Database design & query optimization</li>
+        <li>Third-party API integrations</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title">eCommerce Development</div>
+      <div class="card-desc">Shopify Storefront 2.0, Liquid, Custom Shopify Apps, WooCommerce, Stripe & Payment Gateways.</div>
+      <ul>
+        <li>Custom theme build & app extensions</li>
+        <li>Conversion rate & checkout optimization</li>
+        <li>ERP & inventory sync pipelines</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title">AI & Automation</div>
+      <div class="card-desc">OpenAI, Anthropic LLMs, RAG Architecture, Vector DBs (Pinecone), Custom Chatbots & Agents.</div>
+      <ul>
+        <li>Autonomous 24/7 support chatbots</li>
+        <li>Workflow automation & data extraction</li>
+        <li>Custom intent classification models</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section-title">Engagement & Hiring Models</div>
+  <div class="grid">
+    <div class="card">
+      <div class="card-title">Dedicated Monthly Developers</div>
+      <div class="card-desc">Full-time or part-time senior engineers dedicated exclusively to your product roadmap on Upwork.</div>
+    </div>
+    <div class="card">
+      <div class="card-title">Fixed-Scope Project Delivery</div>
+      <div class="card-desc">Milestone-based project execution with clear deliverables, wireframes, code reviews, and launch support.</div>
+    </div>
+  </div>
+
+  <div class="upwork-notice">
+    🔒 Upwork Compliance Notice: All communications, contract agreements, and payments must be processed directly through the Upwork platform.
+  </div>
+</body>
+</html>

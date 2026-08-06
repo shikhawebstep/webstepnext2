@@ -76,11 +76,11 @@ const TECH_COLORS = {
 
 // ── Stats — Webstep ke real numbers ───────────────────────────────────────────
 const STATS = [
-    { num: "15+",  label: "Years Experience" },
-    { num: "500+", label: "Projects Delivered" },
-    { num: "300+", label: "Happy Clients" },
-    { num: "98%",  label: "Client Retention" },
-    { num: "13+",  label: "Technologies" },
+    { num: "12+",  label: "Years Experience" },
+    { num: "120+", label: "Projects Delivered" },
+    { num: "50+", label: "Happy Clients" },
+    { num: "98%",  label: "Client Satisfaction" },
+    { num: "12+",  label: "Technologies" },
 ];
 
 const normalizeList = (value, fallback = []) => {
@@ -296,7 +296,7 @@ const Work = () => {
                                 WebkitTextFillColor: "transparent",
                             }}
                         >
-                            15+ years
+                            12+ years
                             <span className="absolute left-0 -bottom-2 w-full h-[6px] rounded-full
                                 bg-gradient-to-r from-pink-400 via-purple-400 to-cyan-400
                                 blur-sm opacity-70 animate-pulse" />
@@ -308,7 +308,7 @@ const Work = () => {
                     <p className="text-slate-600 text-sm sm:text-lg md:text-xl leading-relaxed mb-6 sm:mb-10 max-w-2xl mx-auto">
                         From React & Next.js web apps to WordPress, Shopify, Laravel, and AI-powered
                         solutions — <span className="text-slate-900 font-semibold">Webstep Solutions</span> has
-                        delivered 500+ projects that drive real business growth across every major platform.
+                        delivered 120+ projects that drive real business growth across every major platform.
                     </p>
 
                     <div className="relative w-20 h-1.5 rounded-full bg-gradient-to-r from-pink-400 via-purple-400 to-cyan-400 mx-auto">

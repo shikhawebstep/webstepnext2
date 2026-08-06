@@ -5,39 +5,60 @@ import { FiArrowLeft, FiArrowRight, FiBriefcase, FiStar, FiCheckCircle, FiGlobe 
 
 const reviews = [
   {
-    id: 0, initials: 'AR',
-    name: 'Arjun Rao', role: 'Founder, TechVenture India',
-    content: "Webstep built our entire React + Node.js platform from scratch. Delivered on time, clean code, and they genuinely understood our product vision.",
-    tag: 'React.js', accent: '#7C3AED', accentLight: '#ede9fe', accentText: '#5b21b6',
+    id: 0, initials: 'BB',
+    name: 'Bradley Braun', role: 'Verified Client',
+    content: "I enjoy working with Karan from Webstep Solutions, he is fluent in English and has excellent developmental skills.",
+    tag: 'WordPress & Dev', accent: '#7C3AED', accentLight: '#ede9fe', accentText: '#5b21b6',
     avatarFrom: '#7C3AED', avatarTo: '#a855f7', barFrom: '#7C3AED', barTo: '#a855f7',
   },
   {
-    id: 1, initials: 'LM',
-    name: 'Laura Mitchell', role: 'CEO, ShopEase UK',
-    content: "Our Shopify store's conversion rate jumped after Webstep redesigned and rebuilt our custom theme. Outstanding attention to detail and speed.",
-    tag: 'Shopify', accent: '#059669', accentLight: '#d1fae5', accentText: '#065f46',
+    id: 1, initials: 'BB',
+    name: 'Bradley Braun', role: 'Verified Client',
+    content: "Webstep Solutions provided the deliverables in a timely and professional manner. They knows WordPress (as qwell as other platforms) and exceeded expectations.",
+    tag: 'WordPress & Delivery', accent: '#6366F1', accentLight: '#e0e7ff', accentText: '#4338ca',
+    avatarFrom: '#6366F1', avatarTo: '#818cf8', barFrom: '#6366F1', barTo: '#818cf8',
+  },
+  {
+    id: 2, initials: 'MS',
+    name: 'Magnus Stihl', role: 'Business Owner',
+    content: "Karan from Webstep Solutions saved the day for us! What began as some final finishes before launching to include membership account registration pages set up, adding icons and linking our social media accounts with the site, and some testing developed into a significant list of issues that Karan was able to discover and provide a various array of fixes including writing additional code, installing the appropriate plugins and a vast amount of troubleshooting and testing. Karan possesses an immense level of skills, when he says he will work, he does. When he says he will be finished, he meets the deadline. When he knows issues are critical, he stays the course until the issues are resolved. Like other business owners, we obviously have high expectations when hiring staff and engaging contractors. Karan exceeded our expectations. 10 stars!",
+    tag: 'Membership & Custom Dev', accent: '#059669', accentLight: '#d1fae5', accentText: '#065f46',
     avatarFrom: '#059669', avatarTo: '#34d399', barFrom: '#059669', barTo: '#34d399',
   },
   {
-    id: 2, initials: 'KS',
-    name: 'Kevin Schneider', role: 'CTO, DigitalBridge GmbH',
-    content: "The AI chatbot Webstep integrated into our platform reduced our support tickets by 40%. Impressive technical depth and communication throughout.",
-    tag: 'AI Integration', accent: '#DB2777', accentLight: '#fce7f3', accentText: '#9d174d',
+    id: 3, initials: 'ST',
+    name: 'Syga Thomas', role: 'Verified Client',
+    content: "Karan was excellent. He went above and beyond and can perform any task when it comes to website design.",
+    tag: 'Website Design', accent: '#0891B2', accentLight: '#e0f2fe', accentText: '#0369a1',
+    avatarFrom: '#0891B2', avatarTo: '#38bdf8', barFrom: '#0891B2', barTo: '#38bdf8',
+  },
+  {
+    id: 4, initials: 'NM',
+    name: 'Nathanael Murphy', role: 'Frontend Client',
+    content: "Karan did an excellent job in a timely manner. He added his own design concepts without being asked, which helped make the project even better. I highly recommend Karan and am already hiring him for a second frontend project.",
+    tag: 'UI/UX & Frontend', accent: '#DB2777', accentLight: '#fce7f3', accentText: '#9d174d',
     avatarFrom: '#DB2777', avatarTo: '#f472b6', barFrom: '#DB2777', barTo: '#f472b6',
   },
   {
-    id: 3, initials: 'PS',
-    name: 'Priya Sethi', role: 'Product Manager, SaaS Startup',
-    content: "We hired Webstep for a WordPress + WooCommerce rebuild. They handled everything — design, dev, plugins, and launch — without a single missed deadline.",
-    tag: 'WordPress', accent: '#0891B2', accentLight: '#e0f2fe', accentText: '#0369a1',
-    avatarFrom: '#0891B2', avatarTo: '#38bdf8', barFrom: '#0891B2', barTo: '#38bdf8',
+    id: 5, initials: 'BT',
+    name: 'Ben Tee', role: 'Verified Client',
+    content: "Wonderful work done!",
+    tag: 'Web Solutions', accent: '#7C3AED', accentLight: '#ede9fe', accentText: '#5b21b6',
+    avatarFrom: '#7C3AED', avatarTo: '#a855f7', barFrom: '#7C3AED', barTo: '#a855f7',
+  },
+  {
+    id: 6, initials: 'AD',
+    name: 'Amir Dagan', role: 'Verified Client',
+    content: "The freelancer was very professional, well prepared and had a lot of patience with us",
+    tag: 'Web Development', accent: '#EA580C', accentLight: '#ffedd5', accentText: '#9a3412',
+    avatarFrom: '#EA580C', avatarTo: '#fb923c', barFrom: '#EA580C', barTo: '#fb923c',
   },
 ];
 
 const stats = [
   { icon: <FiBriefcase />, num: '120+', label: 'Projects Delivered', bg: '#ede9fe', color: '#7C3AED' },
   { icon: <FiStar />, num: '4.9/5', label: 'Avg Client Rating', bg: '#e0f2fe', color: '#0891B2' },
-  { icon: <FiCheckCircle />, num: '98%', label: 'On-Time Delivery', bg: '#d1fae5', color: '#059669' },
+  { icon: <FiCheckCircle />, num: '98%', label: 'Client Satisfaction', bg: '#d1fae5', color: '#059669' },
   { icon: <FiGlobe />, num: '15+', label: 'Countries Served', bg: '#ffedd5', color: '#EA580C' },
 ];
 

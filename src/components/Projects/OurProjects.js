@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
 import Image from 'next/image';
 import { assetImage } from "@/lib/assets";
@@ -47,7 +48,7 @@ const OurProjects = () => {
                             <li>4</li>
                             <li><FaArrowRight/></li>
                         </ul>
-                        <div className="seemore"><button><a href="#">See more projects</a></button></div>
+                        <div className="seemore"><button><Link href="/works">See more projects</Link></button></div>
                     </div>
                 </div>
             </section>

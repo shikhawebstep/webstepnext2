@@ -4,11 +4,11 @@ import { FiCheckCircle } from 'react-icons/fi';
 const Lists = () => {
   const listItems = [
     { id: 1, text: 'Custom Development Services' },
-    { id: 2, text: '1400+ successful projects' },
-    { id: 3, text: 'Up to 70% cost savings' },
-    { id: 4, text: '20+ years of development services' },
-    { id: 5, text: '100% client satisfaction' },
-    { id: 6, text: '2x reduced development time' },
+    { id: 2, text: '120+ successful projects' },
+    { id: 3, text: 'Cost-effective pricing' },
+    { id: 4, text: '12+ years of development experience' },
+    { id: 5, text: '98% client satisfaction' },
+    { id: 6, text: 'Fast & agile development process' },
   ];
 
   return (

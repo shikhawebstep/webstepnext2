@@ -77,13 +77,28 @@ export async function generateStaticParams() {
 // Page metadata (optional but good practice)
 export async function generateMetadata({ params }) {
   const { slug } = await params;
-  const title = slug
+  let formattedTitle = slug
     .split("-")
     .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
     .join(" ");
+
+  if (slug === "ui-ux" || slug === "uiux" || slug === "ui-ux-designing") {
+    formattedTitle = "UI/UX Design";
+  } else if (slug === "seo") {
+    formattedTitle = "SEO";
+  } else if (slug === "php" || slug === "php-development") {
+    formattedTitle = "PHP Development";
+  } else if (slug === "nodejs" || slug === "nodejs-development") {
+    formattedTitle = "Node.js Development";
+  }
+
+  const finalTitle = formattedTitle.endsWith("Services") || formattedTitle.endsWith("Design") || formattedTitle.endsWith("Development")
+    ? `${formattedTitle} | Webstep Solutions`
+    : `${formattedTitle} Services | Webstep Solutions`;
+
   return {
-    title: `${title} | Services`,
-    description: `Learn more about our ${title} service.`,
+    title: finalTitle,
+    description: `Learn more about our ${formattedTitle} services at Webstep Solutions.`,
   };
 }
 

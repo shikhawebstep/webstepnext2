@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
+import Packages from "./Packages";
 
 const painPoints = [
   {
@@ -49,48 +50,7 @@ const steps = [
   },
 ];
 
-const plans = [
-  {
-    tier: "Starter",
-    price: "1,500",
-    sub: "1 Junior-Mid Developer",
-    features: [
-      "React, Node.js, WordPress, or PHP",
-      "Joins your Slack and project tools",
-      "Daily standup attendance",
-      "72-hour onboarding",
-      "Weekly progress report",
-      "Month-to-month, cancel anytime",
-    ],
-  },
-  {
-    tier: "Growth",
-    price: "2,500",
-    sub: "1 Senior Developer",
-    featured: true,
-    features: [
-      "Full-stack: React + Node or Laravel",
-      "Joins your Slack and project tools",
-      "Daily standup and sprint planning",
-      "72-hour onboarding",
-      "Weekly report and monthly review call",
-      "Direct client communication if needed",
-    ],
-  },
-  {
-    tier: "Scale",
-    price: "4,500",
-    sub: "2 Developers + QA",
-    features: [
-      "2 dedicated devs + 1 QA resource",
-      "Full team integration into your workflow",
-      "Sprint management included",
-      "48-hour onboarding",
-      "Dedicated account manager",
-      "Priority support and same-day response",
-    ],
-  },
-];
+
 
 const comparisonRows = [
   ["Time to first commit", "Days-weeks", "72 hours", "60-90 days"],
@@ -304,57 +264,8 @@ export default function B2BSalesPage() {
         </div>
       </section>
 
-      <section id="pricing" className="bg-[#FFF7FA] px-5 py-20 sm:px-8 lg:px-12">
-        <div className="mx-auto max-w-6xl">
-          <SectionLabel>Pricing</SectionLabel>
-          <h2 className="text-3xl font-black leading-tight text-slate-950 sm:text-5xl">
-            Transparent. Monthly. No surprises.
-          </h2>
-          <p className="mt-4 max-w-2xl text-base leading-8 text-slate-600">
-            All plans are month-to-month. Scale up or down as your project demands change.
-          </p>
-
-          <div className="mt-12 grid gap-6 lg:grid-cols-3">
-            {plans.map((plan) => (
-              <article
-                key={plan.tier}
-                className={`relative rounded-2xl bg-white p-8 shadow-sm transition hover:-translate-y-1 ${
-                  plan.featured ? "border-2 border-[#FF1F8E]" : "border border-pink-100"
-                }`}
-              >
-                {plan.featured && (
-                  <div className="absolute left-1/2 top-0 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#FF1F8E] px-5 py-1.5 text-[11px] font-bold uppercase tracking-[0.16em] text-white">
-                    Most popular
-                  </div>
-                )}
-                <p className="text-xs font-bold uppercase tracking-[0.2em] text-slate-400">{plan.tier}</p>
-                <div className="mt-4 flex items-end gap-1 text-slate-950">
-                  <span className="mb-5 text-xl font-black">$</span>
-                  <span className="text-5xl font-black leading-none">{plan.price}</span>
-                  <span className="mb-1 text-sm font-bold text-slate-400">/mo</span>
-                </div>
-                <p className="mt-2 text-sm font-medium text-slate-500">{plan.sub}</p>
-                <div className="my-7 h-px bg-pink-100" />
-                <ul className="space-y-3">
-                  {plan.features.map((feature) => (
-                    <li key={feature} className="flex gap-3 text-sm leading-6 text-slate-600">
-                      <span className="font-black text-[#FF1F8E]">OK</span>
-                      <span>{feature}</span>
-                    </li>
-                  ))}
-                </ul>
-                <Link
-                  href={`/customize-package?plan=${encodeURIComponent(`${plan.tier} Dedicated Developer`)}`}
-                  className={`mt-8 block rounded-full px-6 py-3 text-center text-sm font-bold text-white transition ${
-                    plan.featured ? "bg-[#FF1F8E] hover:bg-[#D91676]" : "bg-slate-950 hover:bg-slate-800"
-                  }`}
-                >
-                  Book a call
-                </Link>
-              </article>
-            ))}
-          </div>
-        </div>
+      <section id="pricing">
+        <Packages />
       </section>
 
       <section id="faq" className="px-5 py-20 sm:px-8 lg:px-12">

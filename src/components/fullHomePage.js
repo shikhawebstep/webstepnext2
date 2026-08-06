@@ -143,9 +143,9 @@ const floatingIcons = [
   { Icon: Rocket, top: "35%", right: "22%", color: "#10B981", size: 22 },
 ];
 const bannerStats = [
-  { num: "500", suffix: "+", label: "Digital Products" },
-  { num: "99", suffix: "%", label: "Success Rate" },
-  { num: "20", suffix: "+", label: "Years Experience" },
+  { num: "120", suffix: "+", label: "Projects Delivered" },
+  { num: "99", suffix: "%", label: "Client Satisfaction" },
+  { num: "12", suffix: "+", label: "Years Experience" },
   { num: "150", suffix: "+", label: "Team Experts" },
 ];
 
@@ -477,7 +477,7 @@ const SmartServices = () => {
           <motion.div initial={{ opacity: 0, x: 24 }} animate={headingInView ? { opacity: 1, x: 0 } : {}} transition={{ duration: 0.7, delay: 0.25 }} className="lg:max-w-xs">
             <p className="text-slate-500 text-base leading-relaxed mb-8">A high-performance workflow engineered to transform ambitious concepts into digital leaders.</p>
             <div className="flex gap-8">
-              {[["500+", "Projects"], ["99%", "Accuracy"], ["5★", "Rated"]].map(([num, label]) => (
+              {[["500+", "Projects"], ["98%", "Accuracy"], ["5★", "Rated"]].map(([num, label]) => (
                 <div key={label}>
                   <p className="text-2xl font-black text-slate-900 leading-none" >{num}</p>
                   <p className="text-[11px] text-slate-400 font-medium mt-1 tracking-wide">{label}</p>
@@ -576,7 +576,7 @@ const OurExpertise = () => (
         <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ delay: 0.3 }} className="lg:max-w-xs">
           <p className="text-base leading-relaxed mb-6" style={{ color: "rgba(255,255,255,0.45)" }}>Elite technical stacks to build products that redefine market standards and outlast competition.</p>
           <div className="flex gap-8">
-            {[["150+","Projects"],["8+","Years"],["98%","Retention"]].map(([v,l]) => (
+            {[["500+","Projects"],["12+","Years"],["98%","Satisfaction"]].map(([v,l]) => (
               <div key={l}><div className="text-2xl font-black" style={{ color:"#FF1F8E" }}>{v}</div><div className="text-[11px] font-semibold tracking-widest uppercase" style={{ color:"rgba(255,255,255,0.35)" }}>{l}</div></div>
             ))}
           </div>
@@ -748,13 +748,16 @@ const BentoServices = () => (
    7. TESTIMONIALS
 ══════════════════════════════════════════════ */
 const REVIEWS = [
-  { id:0, initials:"MO", name:"Michael O'Malley", role:"Product Lead, Velocity", content:"Exceptional technical depth. They didn't just build what we asked — they built what we actually needed to scale.", tag:"Mobile App", accent:"#7C3AED", accentLight:"#ede9fe", accentText:"#5b21b6", avatarFrom:"#7C3AED", avatarTo:"#a855f7" },
-  { id:1, initials:"SJ", name:"Sarah Jenkins", role:"Design Director, Aura", content:"Absolutely phenomenal. Their UI/UX design transformed our user retention metrics within months of rollout.", tag:"UI/UX", accent:"#FF1F8E", accentLight:"#FCE7F3", accentText:"#9D0059", avatarFrom:"#FF1F8E", avatarTo:"#FF6EC4" },
-  { id:2, initials:"MM", name:"Matt Meyer", role:"CTO, TechCorp", content:"The communication and project management were top-tier. A true extension of our engineering team throughout.", tag:"Full Stack", accent:"#059669", accentLight:"#d1fae5", accentText:"#065f46", avatarFrom:"#059669", avatarTo:"#34d399" },
-  { id:3, initials:"RS", name:"Riya Sharma", role:"Creative Partner", content:"Precision, speed, and innovation — delivered on time, under budget, exceeding every single expectation we had.", tag:"Laravel", accent:"#EA580C", accentLight:"#ffedd5", accentText:"#9a3412", avatarFrom:"#EA580C", avatarTo:"#fb923c" },
+  { id:0, initials:"BB", name:"Bradley Braun", role:"Verified Client", content:"I enjoy working with Karan from Webstep Solutions, he is fluent in English and has excellent developmental skills.", tag:"WordPress & Dev", accent:"#7C3AED", accentLight:"#ede9fe", accentText:"#5b21b6", avatarFrom:"#7C3AED", avatarTo:"#a855f7" },
+  { id:1, initials:"BB", name:"Bradley Braun", role:"Verified Client", content:"Webstep Solutions provided the deliverables in a timely and professional manner. They knows WordPress (as qwell as other platforms) and exceeded expectations.", tag:"WordPress & Delivery", accent:"#6366F1", accentLight:"#e0e7ff", accentText:"#4338ca", avatarFrom:"#6366F1", avatarTo:"#818cf8" },
+  { id:2, initials:"MS", name:"Magnus Stihl", role:"Business Owner", content:"Karan from Webstep Solutions saved the day for us! What began as some final finishes before launching to include membership account registration pages set up, adding icons and linking our social media accounts with the site, and some testing developed into a significant list of issues that Karan was able to discover and provide a various array of fixes including writing additional code, installing the appropriate plugins and a vast amount of troubleshooting and testing. Karan possesses an immense level of skills, when he says he will work, he does. When he says he will be finished, he meets the deadline. When he knows issues are critical, he stays the course until the issues are resolved. Like other business owners, we obviously have high expectations when hiring staff and engaging contractors. Karan exceeded our expectations. 10 stars!", tag:"Membership & Custom Dev", accent:"#FF1F8E", accentLight:"#FCE7F3", accentText:"#9D0059", avatarFrom:"#FF1F8E", avatarTo:"#FF6EC4" },
+  { id:3, initials:"ST", name:"Syga Thomas", role:"Verified Client", content:"Karan was excellent. He went above and beyond and can perform any task when it comes to website design.", tag:"Website Design", accent:"#EA580C", accentLight:"#ffedd5", accentText:"#9a3412", avatarFrom:"#EA580C", avatarTo:"#fb923c" },
+  { id:4, initials:"NM", name:"Nathanael Murphy", role:"Frontend Client", content:"Karan did an excellent job in a timely manner. He added his own design concepts without being asked, which helped make the project even better. I highly recommend Karan and am already hiring him for a second frontend project.", tag:"UI/UX & Frontend", accent:"#059669", accentLight:"#d1fae5", accentText:"#065f46", avatarFrom:"#059669", avatarTo:"#34d399" },
+  { id:5, initials:"BT", name:"Ben Tee", role:"Verified Client", content:"Wonderful work done!", tag:"Web Solutions", accent:"#7C3AED", accentLight:"#ede9fe", accentText:"#5b21b6", avatarFrom:"#7C3AED", avatarTo:"#a855f7" },
+  { id:6, initials:"AD", name:"Amir Dagan", role:"Verified Client", content:"The freelancer was very professional, well prepared and had a lot of patience with us", tag:"Web Development", accent:"#0891B2", accentLight:"#e0f2fe", accentText:"#0369a1", avatarFrom:"#0891B2", avatarTo:"#38bdf8" },
 ];
 const TSTATS = [
-  { icon:<FiBriefcase/>, num:"500+", label:"Projects Delivered", bg:"#ede9fe", color:"#7C3AED" },
+  { icon:<FiBriefcase/>, num:"120+", label:"Projects Delivered", bg:"#ede9fe", color:"#7C3AED" },
   { icon:<FiStar/>, num:"4.9/5", label:"Avg Rating", bg:"#FCE7F3", color:"#FF1F8E" },
   { icon:<FiCheckCircle/>, num:"✓", label:"Google Certified", bg:"#d1fae5", color:"#059669" },
   { icon:<FiGlobe/>, num:"40+", label:"Countries", bg:"#ffedd5", color:"#EA580C" },
@@ -844,10 +847,10 @@ const Testimonials = () => {
 ══════════════════════════════════════════════ */
 const INFO_ITEMS = [
   { icon:<FaMapMarkerAlt/>, title:"Global HQ", detail:"E-45 Industrial Area Phase-8", subDetail:"Mohali, Punjab", accent:"#FF1F8E", accentRgb:"255,31,142" },
-  { icon:<FaEnvelope/>, title:"Contact Us", detail:"info@webstepsolutions.com", subDetail:"+91 97818 90033", accent:"#0891B2", accentRgb:"8,145,178" },
+  { icon:<FaEnvelope/>, title:"Contact Us", detail:"info@webstepsolutions.com", subDetail:"+91 79739-38927", accent:"#0891B2", accentRgb:"8,145,178" },
   { icon:<FaClock/>, title:"Working Hours", detail:"Mon – Sat: 9:00 AM – 6:00 PM", subDetail:"Sun: Closed", accent:"#F59E0B", accentRgb:"245,158,11" },
 ];
-const CSOCIALS = [{ icon:<FaLinkedinIn/>, label:"LinkedIn", href:"#", hoverColor:"#0077b5" },{ icon:<FaInstagram/>, label:"Instagram", href:"#", hoverColor:"#e1306c" },{ icon:<FaTwitter/>, label:"Twitter", href:"#", hoverColor:"#1da1f2" }];
+const CSOCIALS = [{ icon:<FaLinkedinIn/>, label:"LinkedIn", href:"https://linkedin.com", hoverColor:"#0077b5" },{ icon:<FaInstagram/>, label:"Instagram", href:"https://instagram.com", hoverColor:"#e1306c" },{ icon:<FaTwitter/>, label:"Twitter", href:"https://twitter.com", hoverColor:"#1da1f2" }];
 
 const ContactSection = () => (
   <section className="py-20 md:py-24 relative z-10 px-6 overflow-hidden bg-white">

@@ -70,7 +70,7 @@ const Blogs = () => {
 
                   <div className="flex items-center justify-around sm:justify-start gap-4 sm:gap-6 text-xs sm:text-sm text-slate-500">
                     <div>
-                      <p className="text-lg sm:text-xl font-bold text-slate-900">5+</p>
+                      <p className="text-lg sm:text-xl font-bold text-slate-900">12+</p>
                       <p>Years Experience</p>
                     </div>
                     <div>
@@ -78,7 +78,7 @@ const Blogs = () => {
                       <p>Projects</p>
                     </div>
                     <div>
-                      <p className="text-lg sm:text-xl font-bold text-slate-900">80+</p>
+                      <p className="text-lg sm:text-xl font-bold text-slate-900">50+</p>
                       <p>Clients</p>
                     </div>
                   </div>

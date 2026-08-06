@@ -5,10 +5,10 @@ import Lists from '../Lists';
 import AnimatedSection from '../AnimatedSection';
 
 const STATS = [
-  { value: "15+", label: "Years Experience" },
-  { value: "500+", label: "Projects Delivered" },
-  { value: "13+", label: "Technologies" },
-  { value: "98%", label: "Client Retention" },
+  { value: "12+", label: "Years Experience" },
+  { value: "120+", label: "Projects Delivered" },
+  { value: "12+", label: "Technologies" },
+  { value: "98%", label: "Client Satisfaction" },
 ];
 
 const WorkBanner = () => {
@@ -60,7 +60,7 @@ const WorkBanner = () => {
 
                 {/* Description — Webstep ke liye updated */}
                 <p className="text-slate-500 text-sm sm:text-lg md:text-xl leading-relaxed mb-6 sm:mb-8 max-w-2xl">
-                  With <span className="font-semibold text-slate-700">15+ years of excellence</span>,
+                  With <span className="font-semibold text-slate-700">12+ years of excellence</span>,
                   Webstep Solutions has delivered 500+ world-class digital products — from blazing-fast
                   React & Next.js web apps to powerful Shopify stores, WordPress solutions, and
                   cutting-edge AI integrations. We build for performance, scale, and results.

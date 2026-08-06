@@ -160,9 +160,9 @@ const ContactUs = () => {
                                     </p>
                                     <div className="flex gap-3 sm:gap-6 mb-6 sm:mb-7">
                                         {[
-                                            { num: "500+", label: "Businesses" },
-                                            { num: "40+", label: "Countries" },
-                                            { num: "99.9%", label: "Uptime" },
+                                            { num: "120+", label: "Businesses" },
+                                            { num: "15+", label: "Countries" },
+                                            { num: "98%", label: "Uptime" },
                                         ].map((stat, i) => (
                                             <div key={stat.label} className="flex gap-3 sm:gap-6">
                                                 <div>

@@ -12,7 +12,69 @@ const CONTENT_ENDPOINTS = {
   packages: '/api/packages.php',
   portfolio: '/api/portfolio.php',
   'case-studies': '/api/case-studies.php',
+  blogs: '/api/blogs.php',
 };
+
+/**
+ * Fetch blogs list and categories from /api/blogs.php
+ */
+export async function fetchBlogs(fallback = { categories: [], blogs: [] }) {
+  try {
+    const res = await fetch(`${BASE_URL}/api/blogs.php`, {
+      cache: 'no-store',
+    });
+    if (!res.ok) throw new Error('API error');
+    const data = await res.json();
+    return {
+      categories: data.categories || fallback.categories || [],
+      blogs: data.blogs || data.data || fallback.blogs || [],
+    };
+  } catch (err) {
+    console.warn('[contentApi] fetchBlogs failed, using fallback:', err.message);
+    return fallback;
+  }
+}
+
+/**
+ * Fetch single blog by slug from /api/blogs.php?slug=...
+ */
+export async function fetchBlogBySlug(slug, fallback = null) {
+  try {
+    const res = await fetch(`${BASE_URL}/api/blogs.php?slug=${encodeURIComponent(slug)}`, {
+      cache: 'no-store',
+    });
+    if (!res.ok) throw new Error('API error');
+    const data = await res.json();
+    if (!data.blog && !data.data) throw new Error('Blog not found in API response');
+    return {
+      blog: data.blog || data.data,
+      related: data.related || [],
+    };
+  } catch (err) {
+    console.warn('[contentApi] fetchBlogBySlug failed, using fallback:', err.message);
+    return fallback ? { blog: fallback, related: [] } : null;
+  }
+}
+
+/**
+ * Fetch packages directly from /api/packages.php
+ */
+export async function fetchPackages(fallback = { packages: [] }) {
+  try {
+    const res = await fetch(`${BASE_URL}/api/packages.php`, {
+      cache: 'no-store',
+    });
+    if (!res.ok) throw new Error('API error');
+    const data = await res.json();
+    return {
+      packages: data.packages || data.data || fallback.packages || [],
+      tabs: data.tabs || fallback.tabs || [],
+    };
+  } catch (err) {
+    console.warn('[contentApi] fetchPackages failed, using fallback:', err.message);
+    return fallback;
+  }
+}
 
 /**
  * Fetch packages and tabs for the Packages component

@@ -221,8 +221,8 @@ function BentoBox({ service, spanStyle, onSelect }) {
         }}>
           {service.fullTitle}
         </h3>
-        <p style={{ fontSize: '12px', color: '#94a3b8', lineHeight: 1.6, fontWeight: 500, flex: 1, margin: '0 0 0.8rem 0' }}>
-          {service.description.substring(0, 95)}...
+        <p style={{ fontSize: '12px', color: '#64748b', lineHeight: 1.6, fontWeight: 500, flex: 1, margin: '0 0 0.8rem 0' }}>
+          {service.description}
         </p>
         <div style={{ display: 'inline-flex', alignItems: 'center', gap: '5px', fontSize: '10px', fontWeight: 700, letterSpacing: '0.15em', textTransform: 'uppercase', color: service.accent }}>
           Explore

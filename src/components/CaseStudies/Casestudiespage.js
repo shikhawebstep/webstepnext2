@@ -1,7 +1,7 @@
 "use client";
 import React, { useState, useRef, useEffect } from "react";
 import { motion, useInView, useScroll, useTransform, AnimatePresence } from "framer-motion";
-import { 
+import {
   FaArrowRight, FaQuoteLeft, FaStar, FaExternalLinkAlt, FaArrowLeft, FaCheck,
   FaStethoscope, FaShoppingCart, FaCloud, FaGraduationCap, FaCreditCard, FaHeart,
   FaBuilding, FaBroadcastTower, FaSearch, FaMapMarkedAlt, FaPenNib, FaCogs, FaRocket,
@@ -15,10 +15,10 @@ import { fetchContent } from "@/lib/contentApi";
 // DATA
 // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 const STATS = [
-  { num: "500+", label: "Projects Delivered", sub: "Across 20+ industries" },
-  { num: "300+", label: "Happy Clients", sub: "From startups to enterprises" },
-  { num: "15+", label: "Years Experience", sub: "Since 2010" },
-  { num: "98%", label: "Client Retention", sub: "Long-term partnerships" },
+  { num: "120+", label: "Projects Delivered", sub: "Across 15+ industries" },
+  { num: "50+", label: "Happy Clients", sub: "From startups to enterprises" },
+  { num: "12+", label: "Years Experience", sub: "Since 2012" },
+  { num: "98%", label: "Client Satisfaction", sub: "Long-term partnerships" },
 ];
 const CATEGORIES = ["All", "Healthcare", "E-Commerce", "SaaS", "Education", "Fintech", "Non-Profit", "Enterprise"];
 
@@ -45,11 +45,11 @@ const CASE_STUDIES = [
     ],
     deliverables: ["Custom booking engine", "Patient mobile app", "Admin dashboard", "Automated SMS/Email reminders", "Real-time slot management"],
     testimonial: {
-     quote: "Webstep Solutions didn't just build software — they fundamentally transformed how our patients experience care.",
-
-      author: "Dr. Sarah Linton",
-      role: "CEO, Dr. Treat Inc.",
-      avatar: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=80&q=80",
+      quote: "I enjoy working with Karan from Webstep Solutions, he is fluent in English and has excellent developmental skills. Webstep Solutions provided the deliverables in a timely and professional manner. They know WordPress (as well as other platforms) and exceeded expectations.",
+      author: "Bradley Braun",
+      role: "Verified Client",
+      initials: "BB",
+      color: "#7C3AED",
     },
     featured: true,
     color: "#6366f1",
@@ -79,10 +79,11 @@ const CASE_STUDIES = [
     ],
     deliverables: ["Headless React storefront", "Laravel commerce API", "Redis caching layer", "Stripe payment integration", "AWS auto-scaling setup"],
     testimonial: {
-quote: "Our users went from confused to confident. Webstep made complex finance feel approachable.",
-      author: "Marcus Webb",
-      role: "CTO, ShopVault Ltd.",
-      avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=80&q=80",
+      quote: "Karan from Webstep Solutions saved the day for us! What began as some final finishes before launching to include membership account registration pages set up, adding icons and linking our social media accounts with the site, and some testing developed into a significant list of issues that Karan was able to discover and provide a various array of fixes including writing additional code, installing the appropriate plugins and a vast amount of troubleshooting and testing. Karan possesses an immense level of skills, when he says he will work, he does. When he says he will be finished, he meets the deadline. When he knows issues are critical, he stays the course until the issues are resolved. Like other business owners, we obviously have high expectations when hiring staff and engaging contractors. Karan exceeded our expectations. 10 stars!",
+      author: "Magnus Stihl",
+      role: "Business Owner",
+      initials: "MS",
+      color: "#059669",
     },
     featured: true,
     color: "#f59e0b",
@@ -112,10 +113,11 @@ quote: "Our users went from confused to confident. Webstep made complex finance 
     ],
     deliverables: ["LMS web platform", "Live WebRTC classrooms", "Mobile student app", "Automated grading engine", "Analytics dashboard"],
     testimonial: {
-quote: "We went from dreading sales peaks to welcoming them. Webstep built something truly bulletproof.",
-      author: "Prof. Amara Osei",
-      role: "Director, EduForge Group",
-      avatar: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=80&q=80",
+      quote: "Karan did an excellent job in a timely manner. He added his own design concepts without being asked, which helped make the project even better. I highly recommend Karan and am already hiring him for a second frontend project.",
+      author: "Nathanael Murphy",
+      role: "Frontend Client",
+      initials: "NM",
+      color: "#DB2777",
     },
     featured: false,
     color: "#10b981",
@@ -145,10 +147,11 @@ quote: "We went from dreading sales peaks to welcoming them. Webstep built somet
     ],
     deliverables: ["IoT SaaS platform", "Mobile scanner app", "Real-time GPS dashboard", "Automated audit trails", "WMS API integration"],
     testimonial: {
-      quote: "Retrievr paid for itself in 3 weeks. That's not marketing — that's what happened.",
-      author: "Jamie Torres",
-      role: "Operations VP, Retrievr Corp.",
-      avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&q=80",
+      quote: "Karan was excellent. He went above and beyond and can perform any task when it comes to website design.",
+      author: "Syga Thomas",
+      role: "Verified Client",
+      initials: "ST",
+      color: "#0891B2",
     },
     featured: false,
     color: "#8b5cf6",
@@ -178,10 +181,11 @@ quote: "We went from dreading sales peaks to welcoming them. Webstep built somet
     ],
     deliverables: ["AI insights engine", "Investment dashboard", "Automated rebalancing", "Tax report generator", "Plaid bank integration"],
     testimonial: {
-      quote: "Our users went from confused to confident. TechnoScore made complex finance feel approachable.",
-      author: "Leila Nasser",
-      role: "Product Lead, FundPath",
-      avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=80&q=80",
+      quote: "The freelancer was very professional, well prepared and had a lot of patience with us.",
+      author: "Amir Dagan",
+      role: "Verified Client",
+      initials: "AD",
+      color: "#EA580C",
     },
     featured: false,
     color: "#f43f5e",
@@ -211,10 +215,11 @@ quote: "We went from dreading sales peaks to welcoming them. Webstep built somet
     ],
     deliverables: ["Website redesign", "Donor journey flow", "Sanity CMS setup", "Stripe donation integration", "Impact storytelling pages"],
     testimonial: {
-      quote: "We finally have a digital home that reflects who we are. People feel moved to give when they visit.",
-      author: "Rev. Daniel Okafor",
-      role: "Executive Director, Grace Mercy",
-      avatar: "https://images.unsplash.com/photo-1530268729831-4b0b9e170218?w=80&q=80",
+      quote: "Wonderful work done!",
+      author: "Ben Tee",
+      role: "Verified Client",
+      initials: "BT",
+      color: "#7C3AED",
     },
     featured: false,
     color: "#ec4899",
@@ -491,8 +496,9 @@ const CaseStudyDetail = ({ cs, onClose }) => {
                 &ldquo;{cs.testimonial.quote}&rdquo;
               </p>
               <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-full overflow-hidden ring-2" style={{ "--tw-ring-color": `${cs.color}50` }}>
-                  <img src={cs.testimonial.avatar} alt={cs.testimonial.author} className="w-full h-full object-cover" />
+                <div className="w-12 h-12 rounded-full overflow-hidden flex items-center justify-center font-black text-white text-sm flex-shrink-0 shadow-sm"
+                  style={{ background: `linear-gradient(135deg, ${cs.testimonial.color || cs.color}, #a855f7)` }}>
+                  {cs.testimonial.initials || cs.testimonial.author?.slice(0, 2).toUpperCase()}
                 </div>
                 <div>
                   <p className="font-extrabold text-slate-900">{cs.testimonial.author}</p>
@@ -573,8 +579,8 @@ const Hero = () => {
         </motion.h1>
         <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.3 }}
           className="text-sm sm:text-xl text-slate-600 leading-relaxed max-w-2xl mx-auto mb-8 sm:mb-12">
-  500+ projects. 300+ clients. Every case study here is a story of a real problem 
-  solved â€” with measurable, verified outcomes you can hold us to.        </motion.p>
+          120+ projects. 50+ clients. Every case study here is a story of a real problem
+          solved — with measurable, verified outcomes you can hold us to.        </motion.p>
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.45 }}
           className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 w-full sm:w-auto">
           <a href="#featured" className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3.5 sm:py-4 rounded-2xl font-bold text-white text-xs sm:text-[15px] transition-all duration-300 hover:scale-105 whitespace-nowrap"
@@ -811,8 +817,79 @@ const AllStudies = ({ caseStudies, categories, onOpen }) => {
 // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 // TESTIMONIALS
 // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-const Testimonials = ({ caseStudies }) => {
-  const testimonials = caseStudies.map(c => ({ ...c.testimonial, project: c.title, color: c.color, accent: c.accent, lightText: c.lightText }));
+const Testimonials = () => {
+  const testimonials = [
+    {
+      author: "Bradley Braun",
+      role: "Verified Client",
+      quote: "I enjoy working with Karan from Webstep Solutions, he is fluent in English and has excellent developmental skills.",
+      project: "WordPress & Dev",
+      color: "#7C3AED",
+      accent: "#ede9fe",
+      lightText: "#5b21b6",
+      initials: "BB",
+    },
+    {
+      author: "Bradley Braun",
+      role: "Verified Client",
+      quote: "Webstep Solutions provided the deliverables in a timely and professional manner. They knows WordPress (as qwell as other platforms) and exceeded expectations.",
+      project: "WordPress & Delivery",
+      color: "#6366F1",
+      accent: "#e0e7ff",
+      lightText: "#4338ca",
+      initials: "BB",
+    },
+    {
+      author: "Magnus Stihl",
+      role: "Business Owner",
+      quote: "Karan from Webstep Solutions saved the day for us! What began as some final finishes before launching to include membership account registration pages set up, adding icons and linking our social media accounts with the site, and some testing developed into a significant list of issues that Karan was able to discover and provide a various array of fixes including writing additional code, installing the appropriate plugins and a vast amount of troubleshooting and testing. Karan possesses an immense level of skills, when he says he will work, he does. When he says he will be finished, he meets the deadline. When he knows issues are critical, he stays the course until the issues are resolved. Like other business owners, we obviously have high expectations when hiring staff and engaging contractors. Karan exceeded our expectations. 10 stars!",
+      project: "Membership & Custom Dev",
+      color: "#059669",
+      accent: "#d1fae5",
+      lightText: "#065f46",
+      initials: "MS",
+    },
+    {
+      author: "Syga Thomas",
+      role: "Verified Client",
+      quote: "Karan was excellent. He went above and beyond and can perform any task when it comes to website design.",
+      project: "Website Design",
+      color: "#0891B2",
+      accent: "#e0f2fe",
+      lightText: "#0369a1",
+      initials: "ST",
+    },
+    {
+      author: "Nathanael Murphy",
+      role: "Frontend Client",
+      quote: "Karan did an excellent job in a timely manner. He added his own design concepts without being asked, which helped make the project even better. I highly recommend Karan and am already hiring him for a second frontend project.",
+      project: "UI/UX & Frontend",
+      color: "#DB2777",
+      accent: "#fce7f3",
+      lightText: "#9d174d",
+      initials: "NM",
+    },
+    {
+      author: "Ben Tee",
+      role: "Verified Client",
+      quote: "Wonderful work done!",
+      project: "Web Solutions",
+      color: "#7C3AED",
+      accent: "#ede9fe",
+      lightText: "#5b21b6",
+      initials: "BT",
+    },
+    {
+      author: "Amir Dagan",
+      role: "Verified Client",
+      quote: "The freelancer was very professional, well prepared and had a lot of patience with us",
+      project: "Web Development",
+      color: "#EA580C",
+      accent: "#ffedd5",
+      lightText: "#9a3412",
+      initials: "AD",
+    },
+  ];
   return (
     <section className="py-24 px-6"
       style={{ background: "linear-gradient(160deg, #f0fdf9 0%, #fdf4ff 60%, #eff6ff 100%)" }}>
@@ -841,8 +918,9 @@ const Testimonials = ({ caseStudies }) => {
                 <FaQuoteLeft style={{ color: `${t.color}25` }} className="text-3xl mb-3" />
                 <p className="text-slate-600 text-[14px] leading-relaxed flex-1 mb-6 italic">&ldquo;{t.quote}&rdquo;</p>
                 <div className="flex items-center gap-3 pt-4 border-t border-slate-100">
-                  <div className="w-10 h-10 rounded-full overflow-hidden flex-shrink-0 ring-2" style={{ "--tw-ring-color": `${t.color}50` }}>
-                    <img src={t.avatar} alt={t.author} className="w-full h-full object-cover" />
+                  <div className="w-10 h-10 rounded-full overflow-hidden flex items-center justify-center font-black text-white text-xs flex-shrink-0 shadow-sm"
+                    style={{ background: `linear-gradient(135deg, ${t.color || '#7C3AED'}, #a855f7)` }}>
+                    {t.initials || t.author?.slice(0, 2).toUpperCase()}
                   </div>
                   <div>
                     <p className="text-slate-900 font-bold text-[14px]">{t.author}</p>
@@ -881,7 +959,7 @@ const Process = () => (
           </span>
         </h2>
         <p className="text-slate-500 text-sm sm:text-lg mt-3 max-w-xl mx-auto leading-relaxed">
-          Every engagement follows a battle-tested framework honed over 500+ projects and 15+ years.
+          Every engagement follows a battle-tested framework honed over 120+ projects and 12+ years.
         </p>
       </Reveal>
       <div className="relative">

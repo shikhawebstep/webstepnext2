@@ -8,7 +8,7 @@ const Digital = () => {
                     We’ve Got a Passion for Creating Outstanding Digital Experiences
                 </h3>
                 <p className="text-gray-400 text-lg md:text-xl leading-relaxed">
-                    With over 1000 completed projects, 15+ years of experience, and a team of over 280 people from 40+ countries, you can expect nothing less than exceptional quality, timely delivery, and world-class, full-cycle software development services.
+                    With over 500 completed projects, 12+ years of experience, and a team of over 150 dedicated experts from across the globe, you can expect nothing less than exceptional quality, timely delivery, and world-class, full-cycle software development services.
                 </p>
             </div>
         </section>

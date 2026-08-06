@@ -20,100 +20,11 @@ import {
     FaRegHeart,
     FaChevronRight,
 } from "react-icons/fa";
-import { assetImage } from "@/lib/assets";
+import { assetImage, resolveBlogImage } from "@/lib/assets";
 const blog1 = assetImage("blog1.png");
 const blog2 = assetImage("blog2.png");
 const blog3 = assetImage("blog3.png");
 const blog4 = assetImage("blog4.png");
-
-const POST = {
-  id: 1,
-  title: "Which eCommerce Platform is Best for SEO in 2026?",
-  slug: "best-ecommerce-platform-seo",
-  category: "E-Commerce",
-  author: "Webstep Team",
-  date: "Mar 15, 2025",
-  readTime: "6 min read",
-  views: 1240,
-  likes: 87,
-  imageSrc: blog1,
-  tags: ["SEO", "Shopify", "WordPress", "eCommerce", "Laravel"],
-  content: [
-    {
-      type: "lead",
-      text: "For any eCommerce website, SEO is the single most powerful lever for sustainable growth. Unlike paid ads, organic traffic compounds over time — making platform choice a long-term strategic decision.",
-    },
-    {
-      type: "h2",
-      text: "Why Platform Choice Matters for SEO",
-    },
-    {
-      type: "p",
-      text: "Search engines crawl your site's technical architecture, page speed, structured data, and URL patterns. Different platforms handle each of these uniquely — and choosing the wrong one can put you at a structural disadvantage before you write a single word of content.",
-    },
-    {
-      type: "h2",
-      text: "Top Contenders at a Glance",
-    },
-    {
-      type: "list",
-      items: [
-        "Shopify — Best out-of-the-box SEO with fast hosting and clean URL structures.",
-        "WordPress + WooCommerce — Maximum flexibility for technical SEO customisation.",
-        "Custom Laravel Store — Full control over every SEO element, ideal for scale.",
-        "BigCommerce — Enterprise-grade structured data support.",
-        "Squarespace — Clean markup but limited for advanced SEO strategies.",
-      ],
-    },
-    {
-      type: "h2",
-      text: "Our Recommendation",
-    },
-    {
-      type: "p",
-      text: "For most growing businesses, Shopify delivers the best balance of speed, usability, and SEO out of the box. WordPress with WooCommerce wins when you need granular control. And if you're at serious scale, a custom Laravel store gives you full ownership over every technical detail. At Webstep Solutions, we've built all three — and we tailor our recommendation to your specific business goals.",
-    },
-    {
-      type: "quote",
-      text: "SEO is not about gaming the system. It is about learning how to play by the rules.",
-      author: "Jordan Kasteler",
-    },
-    {
-      type: "p",
-      text: "Webstep Solutions has helped 300+ clients build and optimise their eCommerce stores across Shopify, WordPress, and Laravel. Our process starts with a full technical SEO audit and ends with measurable results — typically a 40–120% increase in organic sessions within six months.",
-    },
-  ],
-};
-
-const RELATED = [
-  {
-    id: 2,
-    title: "Shopify vs Custom Laravel Store — What's Right for Your Business?",
-    slug: "shopify-vs-laravel-ecommerce",
-    date: "Apr 02, 2025",
-    views: 94,
-    imageSrc: blog2,
-    category: "E-Commerce",
-  },
-  {
-    id: 3,
-    title: "How AI Chatbots Are Transforming Customer Support in 2025",
-    slug: "ai-chatbots-customer-support-2025",
-    date: "May 10, 2025",
-    views: 76,
-    imageSrc: blog3,
-    category: "AI Integration",
-  },
-  {
-    id: 4,
-    title: "React vs Next.js in 2025 — Which Should You Build With?",
-    slug: "react-vs-nextjs-2025",
-    date: "Mar 15, 2025",
-    views: 128,
-    imageSrc: blog4,
-    category: "Web Development",
-  },
-];
 
 /* ─── HELPERS ─── */
 const GradientText = ({ children, className = "" }) => (
@@ -197,31 +108,29 @@ const ShareBtn = ({ icon: Icon, label, color }) => (
 );
 
 /* ─── RELATED CARD ─── */
-const RelatedCard = ({ post, router }) => (
-    <div className="group flex flex-col rounded-[2rem] overflow-hidden bg-white/70 backdrop-blur-xl border border-white/40 shadow-[0_20px_60px_rgba(0,0,0,0.07)] hover:shadow-[0_30px_80px_rgba(236,72,153,0.13)] transition-all duration-500 hover:-translate-y-2">
-        {/* Image wrapper — fixed height, overflow hidden on parent handles crop */}
-        <div className="relative h-44 overflow-hidden bg-gradient-to-br from-pink-200 via-purple-200 to-cyan-200">
-            {post.imageSrc && (
+const RelatedCard = ({ post, router }) => {
+    const imgSrc = resolveBlogImage(post.image || post.imageSrc);
+    return (
+        <div className="group flex flex-col rounded-[2rem] overflow-hidden bg-white/70 backdrop-blur-xl border border-white/40 shadow-[0_20px_60px_rgba(0,0,0,0.07)] hover:shadow-[0_30px_80px_rgba(236,72,153,0.13)] transition-all duration-500 hover:-translate-y-2">
+            <div className="relative h-44 overflow-hidden bg-gradient-to-br from-pink-200 via-purple-200 to-cyan-200">
                 <Image
-                    src={post.imageSrc}
+                    src={imgSrc}
                     alt={post.title}
-                    width={post.imageSrc.width || 600}
-                    height={post.imageSrc.height || 176}
+                    fill
+                    unoptimized={true}
                     className="w-full h-full object-cover"
                 />
-            )}
-            {/* dark overlay */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent pointer-events-none" />
-            <span className="absolute bottom-3 left-4 px-3 py-1 bg-white/90 rounded-full text-[10px] font-bold text-pink-600 tracking-wider">
-                {post.category}
-            </span>
-        </div>
-
-        <div className="p-6 flex flex-col flex-grow">
-            <div className="flex items-center gap-4 text-xs text-slate-400 font-semibold mb-3">
-                <span className="flex items-center gap-1"><FaCalendarAlt className="text-pink-400" />{post.date}</span>
-                <span className="flex items-center gap-1"><FaEye className="text-orange-400" />{post.views}</span>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent pointer-events-none" />
+                <span className="absolute bottom-3 left-4 px-3 py-1 bg-white/90 rounded-full text-[10px] font-bold text-pink-600 tracking-wider">
+                    {post.category}
+                </span>
             </div>
+
+            <div className="p-6 flex flex-col flex-grow">
+                <div className="flex items-center gap-4 text-xs text-slate-400 font-semibold mb-3">
+                    <span className="flex items-center gap-1"><FaCalendarAlt className="text-pink-400" />{post.published_date || post.date}</span>
+                    {post.views && <span className="flex items-center gap-1"><FaEye className="text-orange-400" />{post.views}</span>}
+                </div>
             <h4 className="text-base font-extrabold text-slate-900 leading-snug mb-4 flex-grow group-hover:text-pink-600 transition-colors">
                 {post.title}
             </h4>
@@ -233,7 +142,8 @@ const RelatedCard = ({ post, router }) => (
             </button>
         </div>
     </div>
-);
+  );
+};
 
 /* ─── PROGRESS BAR ─── */
 const ReadingProgress = () => {
@@ -262,9 +172,9 @@ const ReadingProgress = () => {
 };
 
 /* ─── MAIN PAGE ─── */
-const SingleBlogPage = ({ post = POST, relatedPosts = RELATED }) => {
+const SingleBlogPage = ({ post, relatedPosts = [] }) => {
     const [liked, setLiked] = useState(false);
-    const [likeCount, setLikeCount] = useState(post.likes);
+    const [likeCount, setLikeCount] = useState(post?.likes || 0);
     const [copied, setCopied] = useState(false);
     const router = useRouter();
 
@@ -294,7 +204,7 @@ const SingleBlogPage = ({ post = POST, relatedPosts = RELATED }) => {
                     <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-pink-100 rounded-full blur-[140px] -translate-y-1/2 translate-x-1/4 pointer-events-none" />
                     <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-cyan-100 rounded-full blur-[120px] translate-y-1/2 -translate-x-1/4 pointer-events-none" />
 
-                    <div className="container mx-auto max-w-4xl mt-20 relative z-10">
+                    <div className="container mx-auto w-[80%] mt-20 relative z-10">
                         {/* Breadcrumb */}
                         <nav className="flex items-center gap-2 text-sm text-slate-400 font-semibold mb-8">
                             <Link href="/" className="hover:text-pink-500 transition-colors">Home</Link>
@@ -326,9 +236,9 @@ const SingleBlogPage = ({ post = POST, relatedPosts = RELATED }) => {
                                 </div>
                                 <span className="text-slate-800">{post.author}</span>
                             </div>
-                            <span className="flex items-center gap-1.5"><FaCalendarAlt className="text-pink-400" />{post.date}</span>
-                            <span className="flex items-center gap-1.5"><FaClock className="text-purple-400" />{post.readTime}</span>
-                            <span className="flex items-center gap-1.5"><FaEye className="text-orange-400" />{post.views.toLocaleString()} Views</span>
+                            <span className="flex items-center gap-1.5"><FaCalendarAlt className="text-pink-400" />{post.published_date || post.date}</span>
+                            <span className="flex items-center gap-1.5"><FaClock className="text-purple-400" />{post.read_time || post.readTime || '5 min read'}</span>
+                            <span className="flex items-center gap-1.5"><FaEye className="text-orange-400" />{(post.views || 0).toLocaleString()} Views</span>
                             <button
                                 onClick={handleLike}
                                 className="flex items-center gap-1.5 transition-all duration-300 hover:scale-110"
@@ -347,7 +257,7 @@ const SingleBlogPage = ({ post = POST, relatedPosts = RELATED }) => {
                         Parent div clips to desired height via overflow-hidden.
                         Position relative + inset-0 overlay sits cleanly on top.
                     ── */}
-                    <div className="container mx-auto max-w-5xl">
+                    <div className="container mx-auto w-[80%]">
                         <div
                             className="relative rounded-[2.5rem] overflow-hidden shadow-[0_40px_120px_rgba(0,0,0,0.15)]"
                             style={{ height: 'clamp(288px, 40vw, 480px)' }}
@@ -360,21 +270,14 @@ const SingleBlogPage = ({ post = POST, relatedPosts = RELATED }) => {
                                 }}
                             />
 
-                            {post.imageSrc && (
-                                
+                            {(post.image || post.imageSrc) && (
                                 <Image
-                                    src={post.imageSrc}
+                                    src={resolveBlogImage(post.image || post.imageSrc)}
                                     alt={post.title}
-                                    width={post.imageSrc.width}
-                                    height={post.imageSrc.height}
+                                    fill
                                     priority
-                                    style={{
-                                        position: 'absolute',
-                                        inset: 0,
-                                        width: '100%',
-                                        height: '100%',
-                                        objectFit: 'cover',
-                                    }}
+                                    unoptimized={true}
+                                    className="object-cover"
                                 />
                             )}
 
@@ -392,27 +295,36 @@ const SingleBlogPage = ({ post = POST, relatedPosts = RELATED }) => {
 
                 {/* ── BODY ── */}
                 <section className="py-20 px-6">
-                    <div className="container mx-auto max-w-7xl">
+                    <div className="container mx-auto w-[70%]">
                         <div className="flex flex-col lg:flex-row gap-16 items-start">
 
                             {/* ── ARTICLE ── */}
                             <article className="lg:w-2/3 w-full">
-                                {post.content.map((block, i) => (
-                                    <ContentBlock key={i} block={block} />
-                                ))}
+                                {Array.isArray(post.content) ? (
+                                    post.content.map((block, i) => (
+                                        <ContentBlock key={i} block={block} />
+                                    ))
+                                ) : (
+                                    <div
+                                        className="prose prose-slate max-w-none text-slate-600 text-lg leading-relaxed space-y-6"
+                                        dangerouslySetInnerHTML={{ __html: post.content || "" }}
+                                    />
+                                )}
 
                                 {/* Tags */}
-                                <div className="mt-12 flex flex-wrap items-center gap-3">
-                                    <FaTag className="text-pink-400 text-sm" />
-                                    {post.tags.map((tag) => (
-                                        <span
-                                            key={tag}
-                                            className="px-4 py-1.5 rounded-full bg-white border border-slate-200 text-sm font-semibold text-slate-600 hover:border-pink-400 hover:text-pink-600 transition-colors cursor-pointer shadow-sm"
-                                        >
-                                            {tag}
-                                        </span>
-                                    ))}
-                                </div>
+                                {post.tags && post.tags.length > 0 && (
+                                    <div className="mt-12 flex flex-wrap items-center gap-3">
+                                        <FaTag className="text-pink-400 text-sm" />
+                                        {post.tags.map((tag) => (
+                                            <span
+                                                key={tag}
+                                                className="px-4 py-1.5 rounded-full bg-white border border-slate-200 text-sm font-semibold text-slate-600 hover:border-pink-400 hover:text-pink-600 transition-colors cursor-pointer shadow-sm"
+                                            >
+                                                {tag}
+                                            </span>
+                                        ))}
+                                    </div>
+                                )}
 
                                 {/* Share */}
                                 <div className="mt-12 p-8 rounded-[2rem] bg-white/70 backdrop-blur-xl border border-white/40 shadow-[0_20px_60px_rgba(0,0,0,0.07)]">
@@ -469,12 +381,12 @@ const SingleBlogPage = ({ post = POST, relatedPosts = RELATED }) => {
                                         Contents
                                     </div>
                                     <ul className="space-y-3">
-                                        {post.content
+                                        {Array.isArray(post?.content) && post.content
                                             .filter((b) => b.type === "h2")
                                             .map((b, i) => (
                                                 <li key={i}>
                                                     <a
-                                                        href="#"
+                                                        href={`#section-${i}`}
                                                         className="flex items-start gap-3 text-sm text-slate-600 font-semibold hover:text-pink-600 transition-colors group"
                                                     >
                                                         <span className="flex-shrink-0 w-6 h-6 rounded-full bg-gradient-to-br from-pink-100 to-purple-100 flex items-center justify-center text-[10px] font-black text-pink-500 mt-0.5">
@@ -539,7 +451,7 @@ const SingleBlogPage = ({ post = POST, relatedPosts = RELATED }) => {
                     }}
                 >
                     <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-slate-200 to-transparent" />
-                    <div className="container mx-auto max-w-7xl">
+                    <div className="container mx-auto w-[70%]">
                         <div className="text-center mb-14">
                             <div className="inline-flex items-center gap-3 px-5 py-2.5 rounded-2xl bg-white/40 backdrop-blur-md border border-white/60 text-[#FF1F8E] font-bold text-[10px] tracking-[0.3em] uppercase mb-5 shadow-sm">
                                 <PingDot />

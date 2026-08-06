@@ -25,7 +25,7 @@ const PhpDev = () => {
 
                 <div className="space-y-8 text-slate-500 text-lg md:text-xl leading-relaxed font-medium">
                   <p>
-                    TechnoScore delivers digital architecture that powers global commerce. Did you know that almost all popular global brands leverage the scalability of PHP?
+                    Webstep Solutions delivers digital architecture that powers global commerce. Did you know that almost all popular global brands leverage the scalability of PHP?
                   </p>
                   <p>
                     As a premier PHP development studio, we engineer bespoke CMS architectures, enterprise ecosystems, and resilient digital products.

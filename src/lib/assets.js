@@ -13,3 +13,16 @@ export const assetImage = (filename) => {
     height: 800,
   };
 };
+
+export const resolveBlogImage = (image) => {
+  if (!image) return assetImage("blog1.png").src;
+  if (typeof image === "object" && image.src) return image.src;
+  if (typeof image === "string") {
+    if (image.startsWith("http://") || image.startsWith("https://")) {
+      return image;
+    }
+    const cleanName = image.replace(/^\/?img\//, "").replace(/^\/+/, "");
+    return `${IMAGE_ASSET_BASE_URL}/${cleanName}`;
+  }
+  return assetImage("blog1.png").src;
+};

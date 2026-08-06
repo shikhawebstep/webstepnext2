@@ -88,7 +88,7 @@ const Header = () => {
                   Expert Support
                 </span>
                 <span className="text-[13px] font-bold text-slate-900 group-hover:text-[#FF1F8E] transition-colors whitespace-nowrap">
-                  79739-38927
+                  +91 79739-38927
                 </span>
               </div>
             </a>
@@ -140,7 +140,7 @@ const Header = () => {
                       Expert Support
                     </span>
                     <span className="text-base font-bold text-slate-900">
-                      79739-38927
+                      +91 79739-38927
                     </span>
                   </div>
                   <div className="w-10 h-10 rounded-xl bg-[#FF1F8E]/10 flex items-center justify-center text-[#FF1F8E]">
