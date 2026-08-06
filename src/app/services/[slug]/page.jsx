@@ -10,8 +10,6 @@ const services = [
   "ecommerce",
   "ui-ux",
   "seo",
-  "social-media",
-  "email-marketing",
   "branding",
 
   // Design-to-code

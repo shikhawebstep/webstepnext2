@@ -75,13 +75,13 @@ function Reveal({ children, delay = 0, className = "" }) {
 /** Counts a numeric prefix up from 0 once visible */
 function CountUp({ value, duration = 1200 }) {
   const ref = useRef(null);
-  const [display, setDisplay] = useState(value.replace(/[0-9.]/g, () => "0"));
-  const [started, setStarted] = useState(false);
-
-  const match = value.match(/^([0-9.]+)(.*)$/);
+  const match = value ? String(value).match(/^([0-9.]+)(.*)$/) : null;
   const target = match ? parseFloat(match[1]) : null;
   const suffix = match ? match[2] : "";
   const decimals = match && match[1].includes(".") ? match[1].split(".")[1].length : 0;
+
+  const [display, setDisplay] = useState(value);
+  const [started, setStarted] = useState(false);
 
   useEffect(() => {
     const node = ref.current;
@@ -102,7 +102,7 @@ function CountUp({ value, duration = 1200 }) {
           io.disconnect();
         }
       },
-      { threshold: 0.4 }
+      { threshold: 0.1 }
     );
     io.observe(node);
     return () => io.disconnect();
@@ -170,34 +170,8 @@ export default function TrustReviewsPage() {
             </article>
           </Reveal>
 
-          {/* UpCity Card */}
-          <Reveal className="w-full" delay={280}>
-            <article className="group h-full flex flex-col justify-center items-center relative rounded-2xl border border-slate-200/80 bg-white p-5 sm:p-6 text-center shadow-sm hover:shadow-lg transition-all duration-300 gap-4 sm:gap-6">
-              <div className="flex flex-col items-center w-full">
-                <div className="h-10 flex items-center justify-center mb-2">
-                  <Image
-                    src={upcity}
-                    alt="UpCity"
-                    width={110}
-                    height={36}
-                    className="h-7 sm:h-8 w-auto object-contain"
-                  />
-                </div>
-              </div>
-              <div className="text-xs md:text-sm font-medium text-slate-500 mt-1 sm:mt-3">
-                <div className="mb-2 sm:mb-3">
-                  <StarRow color="text-[#FF7A00]" size="h-3.5 w-3.5 sm:h-4 sm:w-4" />
-                </div>
-                <div className="text-2xl sm:text-3xl font-medium text-slate-900 mb-1">
-                  4.9/5
-                </div>
-                Top Rated Agency
-              </div>
-            </article>
-          </Reveal>
-
           {/* Clutch Card */}
-          <Reveal className="w-full" delay={360}>
+          <Reveal className="w-full" delay={280}>
             <article className="group h-full flex flex-col justify-center items-center relative rounded-2xl border border-slate-200/80 bg-white p-5 sm:p-6 text-center shadow-sm hover:shadow-lg transition-all duration-300 gap-4 sm:gap-6">
               <div className="flex flex-col items-center w-full">
                 <div className="h-10 text-center mb-1">
@@ -221,6 +195,32 @@ export default function TrustReviewsPage() {
                   4.9/5
                 </div>
                 50+ Client Reviews
+              </div>
+            </article>
+          </Reveal>
+
+          {/* UpCity Card */}
+          <Reveal className="w-full" delay={360}>
+            <article className="group h-full flex flex-col justify-center items-center relative rounded-2xl border border-slate-200/80 bg-white p-5 sm:p-6 text-center shadow-sm hover:shadow-lg transition-all duration-300 gap-4 sm:gap-6">
+              <div className="flex flex-col items-center w-full">
+                <div className="h-10 flex items-center justify-center mb-2">
+                  <Image
+                    src={upcity}
+                    alt="UpCity"
+                    width={110}
+                    height={36}
+                    className="h-7 sm:h-8 w-auto object-contain"
+                  />
+                </div>
+              </div>
+              <div className="text-xs md:text-sm font-medium text-slate-500 mt-1 sm:mt-3">
+                <div className="mb-2 sm:mb-3">
+                  <StarRow color="text-[#FF7A00]" size="h-3.5 w-3.5 sm:h-4 sm:w-4" />
+                </div>
+                <div className="text-2xl sm:text-3xl font-medium text-slate-900 mb-1">
+                  4.9/5
+                </div>
+                Top Rated Agency
               </div>
             </article>
           </Reveal>

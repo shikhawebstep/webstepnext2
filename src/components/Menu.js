@@ -30,8 +30,6 @@ const submenus = {
                 heading: "Marketing",
                 items: [
                     { name: "SEO Services",    href: "/services/seo",             icon: FiSearch,     desc: "Rank higher, grow faster" },
-                    { name: "Social Media",    href: "/services/social-media",    icon: FiTrendingUp, desc: "Content & paid ads"        },
-                    { name: "Email Marketing", href: "/services/email-marketing", icon: FiMail,       desc: "Campaigns that convert"    },
                     { name: "Brand Design",    href: "/services/branding",        icon: FiPenTool,    desc: "Logos & brand identity"    },
                 ],
             },

@@ -5,18 +5,18 @@ import AnimatedSection from "../AnimatedSection";
 import { FaStar, FaShieldAlt, FaAward, FaThumbsUp } from "react-icons/fa";
 import { motion } from "framer-motion";
 import { assetImage } from "@/lib/assets";
-const review = assetImage("review-icon1.png");
-const review1 = assetImage("review-icon2.png");
-const review2 = assetImage("review-icon3.png");
-const review3 = assetImage("review-icon4.png");
+const googleReview = assetImage("review-icon1.png");
+const clutchReview = assetImage("review-icon3.png");
+const upcityReview = assetImage("review-icon2.png");
+const yelpReview = assetImage("review-icon4.png");
 
 
 const BlogReview = () => {
     const reviews = [
-        { src: review, alt: "Google", label: "Google" },
-        { src: review1, alt: "UpCity", label: "UpCity" },
-        { src: review2, alt: "Clutch", label: "Clutch" },
-        { src: review3, alt: "DesignRush", label: "DesignRush" },
+        { src: googleReview, alt: "Google", label: "Google" },
+        { src: clutchReview, alt: "Clutch", label: "Clutch" },
+        { src: upcityReview, alt: "UpCity", label: "UpCity" },
+        { src: yelpReview, alt: "Yelp", label: "Yelp" },
     ];
 
     return (
@@ -46,6 +46,7 @@ const BlogReview = () => {
                 className="absolute bottom-20 right-[8%] text-violet-300/40 hidden lg:block"
             >
                 <FaShieldAlt size={60} />
+                
             </motion.div>
 
             <div className="container mx-auto px-3 sm:px-6 relative z-10">

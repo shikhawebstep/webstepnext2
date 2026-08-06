@@ -576,7 +576,7 @@ const OurExpertise = () => (
         <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ delay: 0.3 }} className="lg:max-w-xs">
           <p className="text-base leading-relaxed mb-6" style={{ color: "rgba(255,255,255,0.45)" }}>Elite technical stacks to build products that redefine market standards and outlast competition.</p>
           <div className="flex gap-8">
-            {[["500+","Projects"],["12+","Years"],["98%","Satisfaction"]].map(([v,l]) => (
+            {[["120+","Projects"],["12+","Years"],["98%","Satisfaction"]].map(([v,l]) => (
               <div key={l}><div className="text-2xl font-black" style={{ color:"#FF1F8E" }}>{v}</div><div className="text-[11px] font-semibold tracking-widest uppercase" style={{ color:"rgba(255,255,255,0.35)" }}>{l}</div></div>
             ))}
           </div>
